@@ -26,10 +26,20 @@ public class GameManager : MonoBehaviour
                 tile.GetComponent<SpriteRenderer>().enabled = false;
 
             if(hit.collider && currentChess)
-        {
-            hit.collider.GetComponent<SpriteRenderer>().sprite = currentChessSprite;
-            hit.collider.GetComponent<SpriteRenderer>().enabled = true;
-        }
+            {
+                hit.collider.GetComponent<SpriteRenderer>().sprite = currentChessSprite;
+                hit.collider.GetComponent<SpriteRenderer>().enabled = true;
+                
+                if(Input.GetMouseButtonDown(0))
+                {
+                    Instantiate(currentChess, hit.collider.transform.position, Quaternion.identity);
+                    currentChess = null;
+                    currentChessSprite = null;
+                }
+                
+            }
+        
+        
     }
     
 
