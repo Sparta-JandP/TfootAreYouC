@@ -4,41 +4,36 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
-    public GameObject enemy; // 적 유닛 프리팹, 여러개로 분리
-    public Transform[] spawnPoints; // 1~5번 라인 중에서 적 유닛이 생성될 위치
-    public int currentRound = 1;
-    public int[] enemyCountByRound = { 20, 50, 100, 400 }; // 각 라운드마다의 적 유닛 수 배열
+    public float Mineral; //현재 자원
+    public float Mine; //일꾼 유닛이 채굴한 자원
+    public int KingHealth; //왕의 체력
+    public int BossHealth; //적 보스의 체력
+    public int currentStage; //현재 스테이지
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
+    {
+       
+    }
+
+    private void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Mining() //버튼 클릭 시
     {
-        
+        Mineral += Mine;
+        Destroy(gameObject);
+       
     }
 
-    void StartRound(int round) //시작하기, 계속하기 누르면 작동, OnClickButton
+    public void AllyKingHealth() //내 왕의 체력
     {
-        int enemyAmount = enemyCountByRound[round - 1]; //라운드에 따라 소환되는 횟수 반복
-        for (int i = 0; i < enemyAmount; i++)
-        {
-            SpawnEnemy();
-        }
+        KingHealth = currentStage * 2 + 5;
     }
 
-    void SpawnEnemy()
+    public void EnemyBossHealth() //적 보스의 체력
     {
-        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-        // 적 유닛 생성
-        GameObject Enemy = Instantiate(enemy, spawnPoint.position, Quaternion.identity);
-
-        //적 유닛 종류에 따라 능력치 다르게 하는 것과 연결
+        BossHealth = currentStage ^ 2 + 10;
     }
-
-
 }
