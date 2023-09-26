@@ -24,17 +24,33 @@ public class StageManager : MonoBehaviour
     {
         Mineral += Mine; //채굴량 설정값 만큼 자원 추가
         Destroy(gameObject); //아이콘 삭제
-        
-       
     }
 
     public void AllyKingHealth() //내 왕의 체력
     {
-        KingHealth = currentStage * 2 + 5;
+        KingHealth = 100;
+        if(KingHealth < 0)
+        {
+            Defeat();
+        }
     }
 
     public void EnemyBossHealth() //적 보스의 체력
     {
-        BossHealth = currentStage ^ 2 + 10;
+        BossHealth = 5 ^ currentStage + 100;
+        if(BossHealth < 0)
+        {
+            Victory();
+        }
+    }
+
+    public void Defeat()
+    {
+        //패배 결과 출력
+    }
+
+    public void Victory()
+    {
+        //승리 결과 출력
     }
 }
