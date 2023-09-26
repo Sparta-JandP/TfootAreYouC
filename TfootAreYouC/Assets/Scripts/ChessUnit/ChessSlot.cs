@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ChessSlot : MonoBehaviour
 {
     public Sprite chessSprite;
 
     public GameObject chessObject;
+
+    public int price;
 
     public Image icon;
 
@@ -24,7 +26,7 @@ public class ChessSlot : MonoBehaviour
 
     private void BuyChess()
     {
-        //gms
+        gms.BuyChess(chessObject, chessSprite);
     }
     private void OnValidate()
     {
@@ -32,6 +34,7 @@ public class ChessSlot : MonoBehaviour
         {
             icon.enabled = true;
             icon.sprite = chessSprite;
+            priceText.text = price.ToString();
         }
         else
         {
