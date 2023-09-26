@@ -12,7 +12,7 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-       
+        Mineral = Mathf.Clamp(Mineral, 0, 400); //자원 최대 최소값 설정
     }
 
     private void Update()
@@ -20,10 +20,11 @@ public class StageManager : MonoBehaviour
         
     }
 
-    public void Mining() //버튼 클릭 시
+    public void Mining() //채굴 유닛의 버튼 클릭 시
     {
-        Mineral += Mine;
-        Destroy(gameObject);
+        Mineral += Mine; //채굴량 설정값 만큼 자원 추가
+        Destroy(gameObject); //아이콘 삭제
+        
        
     }
 
