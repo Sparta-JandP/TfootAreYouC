@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
-    private static StageManager instance;
+    public static StageManager instance;
 
     public int mineral; //현재 자원
     public TMP_Text mineralText; // TMP Text 변수
@@ -17,27 +17,21 @@ public class StageManager : MonoBehaviour
     public int maxBossHealth; //최대 보스 체력
     public int currentStage; //현재 스테이지
 
-    public static StageManager Instance
+    private void Awake()
     {
-        get
+        // 이미 인스턴스가 있는지 확인하고, 없으면 현재 스크립트를 인스턴스로 설정
+        if (instance == null)
         {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<StageManager>();
-                if (instance == null)
-                {
-                    GameObject obj = new GameObject("StageManager");
-                    instance = obj.AddComponent<StageManager>();
-                }
-            }
-            return instance;
+            instance = this;
         }
-    }
+        else if (instance != this)
+        {
+            Destroy(gameObject); // 중복된 인스턴스 제거
+            return;
+        }
 
-    private void Start()
-    {
-        maxMineral = 400; //최대 자원값
-        mineral = Mathf.Clamp(mineral, 0, maxMineral); //자원 최대 최소값 설정
+        // 인스턴스를 파괴하지 않음
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
@@ -50,6 +44,14 @@ public class StageManager : MonoBehaviour
     {
         mineral += mine; //채굴량 설정값 만큼 자원 추가
         Destroy(gameObject); //아이콘 삭제
+        maxMineral = 400; //최대 자원값
+        mineral = Mathf.Clamp(mineral, 0, maxMineral); //자원 최대 최소값 설정
+
+        // TMP Text 초기화
+        if (mineralText != null)
+        {
+            mineralText.text = mineral.ToString();
+        }
     }
     
 
