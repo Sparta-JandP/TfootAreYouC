@@ -16,6 +16,10 @@ public class GameSceneUIController : MonoBehaviour
 
     [Header("Stage")]
     [SerializeField] private TMP_Text _stageNumText;
+    [SerializeField] private GameObject _stageClearPanel;
+
+    [Header("Pause")]
+    [SerializeField] private GameObject _pausePanel;
 
 
     private StageManager _stageManager;
@@ -47,6 +51,9 @@ public class GameSceneUIController : MonoBehaviour
         UpdateSandAmountUI();
         UpdateKingHealthUI();
         UpdateTrumpBossHealthUI();
+
+        _pausePanel.SetActive(false);
+        _stageClearPanel.SetActive(false);
     }
 
     void UpdateStageNumUI()
