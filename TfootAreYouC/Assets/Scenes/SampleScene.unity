@@ -1515,7 +1515,11 @@ MonoBehaviour:
   - {fileID: 585986960}
   - {fileID: 778437355}
   - {fileID: 2103362049}
-  trump: {fileID: 8376011928677692906, guid: a5f920a9b212de04888dfa976516d4ab, type: 3}
+  trumps:
+  - {fileID: 1216756761300449759, guid: d25ec89b98a90406685d0f035ac4c917, type: 3}
+  - {fileID: 6701969896332392852, guid: 89fa533a2a23a4d52903c8726683ba77, type: 3}
+  - {fileID: 7735203229689663012, guid: d1fc4c251214944c8a4b31e5c65c6873, type: 3}
+  - {fileID: 5878433210928412492, guid: 2eac17fb423aa4f7696ecb4f7f08e788, type: 3}
 --- !u!4 &309386249
 Transform:
   m_ObjectHideFlags: 0
