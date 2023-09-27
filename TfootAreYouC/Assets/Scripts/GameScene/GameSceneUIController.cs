@@ -42,17 +42,24 @@ public class GameSceneUIController : MonoBehaviour
         _stageManager.OnMining += UpdateSandAmountUI;
         _stageManager.OnKingHealthChange += UpdateKingHealthUI;
         _stageManager.OnBossHealthChange += UpdateTrumpBossHealthUI;
+
+        UpdateStageNumUI();
+        UpdateSandAmountUI();
+        UpdateKingHealthUI();
+        UpdateTrumpBossHealthUI();
     }
 
     void UpdateStageNumUI()
     {
-        _stageNum = _stageManager.currentStage; 
+        //_stageNum = _stageManager.currentStage; 
+        _stageNum = 3;
         _stageNumText.text = _stageNum.ToString();
     }
 
     void UpdateSandAmountUI()
     {
         _curMineral = _stageManager.mineral;
+        _curMineral = 100;
         _mineral.fillAmount = (float)_curMineral / _maxMineral;
         _mineralAmount.text = _curMineral.ToString();
     }
@@ -60,7 +67,9 @@ public class GameSceneUIController : MonoBehaviour
     void UpdateKingHealthUI()
     {
         _curKingHealth = _stageManager.kingHealth;
+        Debug.Log(_curKingHealth);
         _kingHealthBar.fillAmount = (float)_curKingHealth / _maxKingHealth;
+        
     }
 
     void UpdateTrumpBossHealthUI()

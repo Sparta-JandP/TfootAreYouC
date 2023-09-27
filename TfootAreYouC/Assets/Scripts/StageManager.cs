@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,6 +18,11 @@ public class StageManager : MonoBehaviour
     public int maxBossHealth; //최대 보스 체력
     public int currentStage; //현재 스테이지
 
+    public event Action OnStageClear;
+    public event Action OnKingHealthChange;
+    public event Action OnBossHealthChange;
+    public event Action OnMining;
+
     private void Awake()
     {
         // 이미 인스턴스가 있는지 확인하고, 없으면 현재 스크립트를 인스턴스로 설정
@@ -32,12 +38,15 @@ public class StageManager : MonoBehaviour
 
         // 인스턴스를 파괴하지 않음
         DontDestroyOnLoad(gameObject);
+
+        maxKingHealth = 100; //왕의 최대 체력
+        maxBossHealth = (int)Math.Pow(5, currentStage) + 100; //보스의 최대 체력, 스테이지에 따라 다름.
     }
 
-    private void Update()
+    private void Start()
     {
-        maxKingHealth = 100; //왕의 최대 체력
-        maxBossHealth = 5 ^ currentStage + 100; //보스의 최대 체력, 스테이지에 따라 다름.
+        kingHealth = maxKingHealth;
+        bossHealth = maxBossHealth;
     }
 
     public void Mining() //채굴 유닛의 버튼 클릭 시
@@ -52,6 +61,7 @@ public class StageManager : MonoBehaviour
         {
             mineralText.text = mineral.ToString();
         }
+        OnMining?.Invoke();
     }
     
 
@@ -62,6 +72,7 @@ public class StageManager : MonoBehaviour
         {
             OnDefeat(); //패배 출력
         }
+        OnKingHealthChange?.Invoke();
     }
 
     public void EnemyBossHealth() //적 보스의 체력
@@ -71,6 +82,7 @@ public class StageManager : MonoBehaviour
         {
             OnVictory(); //승리 출력
         }
+        OnBossHealthChange?.Invoke();
     }
 
     public void OnDefeat()
