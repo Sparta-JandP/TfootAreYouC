@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,12 @@ public class GameManager : MonoBehaviour
 
     public LayerMask tileMask;
 
+    public int sands;
+
+    public TextMeshProUGUI sandText;
+
+    public LayerMask sandMask;
+
     public void BuyChess(GameObject chess, Sprite sprite)
     {
         currentChess = chess;
@@ -20,7 +27,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, tileMask);
+            sandText.text = sands.ToString();
+
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, tileMask);
 
             foreach(Transform tile in tiles)
                 tile.GetComponent<SpriteRenderer>().enabled = false;
@@ -39,10 +48,21 @@ public class GameManager : MonoBehaviour
                 }
                 
             }
-        
-        
-    }
-    
 
-    
+            RaycastHit2D sandHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, sandMask);
+
+            if (sandHit.collider)
+            {
+            if (Input.GetMouseButtonDown(0))
+                {
+                    sands += 25;
+                    Destroy(sandHit.collider.gameObject);
+                }
+            }
+
+
+    }
+
+
+
 }
