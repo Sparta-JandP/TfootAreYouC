@@ -6,7 +6,7 @@ public class TrumpSpawner : MonoBehaviour
 {
     public Transform[] spawnpoints;
 
-    public GameObject trump;
+    public GameObject[] trumps = new GameObject[4];
 
     private void Start()
     {
@@ -14,8 +14,9 @@ public class TrumpSpawner : MonoBehaviour
     }
     void SpawnTrump()
     {
+        int idx = Random.Range(0, 4);
         int r = Random.Range(0, spawnpoints.Length);
-        GameObject myTrump = Instantiate(trump, spawnpoints[r].position, Quaternion.identity);
+        GameObject myTrump = Instantiate(trumps[idx], spawnpoints[r].position, Quaternion.identity);
     }
 
 }

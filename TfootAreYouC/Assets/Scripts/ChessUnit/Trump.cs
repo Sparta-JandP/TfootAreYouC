@@ -2,8 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TrumpType
+{
+    Spade,
+    Heart,
+    Clover,
+    Dia
+    /*보스 카드 보류 
+    Jack,
+    Queen,
+    King,
+    Jocker
+    */
+}
+
 public class Trump : MonoBehaviour
 {
+    public TrumpType type;
+
     public float speed;
 
     public int health;
@@ -20,6 +36,35 @@ public class Trump : MonoBehaviour
 
     public ChessUnit targetChessUnit;
 
+    private void Start()
+    {
+       /* switch (type)
+        {
+            case TrumpType.Spade:
+                speed = 1;
+                health = 1;
+                damage = 1;
+                break;
+
+            case TrumpType.Heart:
+                speed = 1;
+                health = 2;
+                damage = 1;
+                break;
+
+            case TrumpType.Clover:
+                speed = 1;
+                health = 1;
+                damage = 2;
+                break;
+
+            case TrumpType.Dia:
+                speed = 1;
+                health = 2;
+                damage = 2;
+                break;
+        }*/
+    }
     private void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, range, chessMask);
