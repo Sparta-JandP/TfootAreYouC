@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &576769931061952342
+--- !u!1 &6701969896332392852
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1173328113481648743}
-  - component: {fileID: 4990301583040581950}
-  - component: {fileID: 1227964651162630467}
-  - component: {fileID: 5935449952313369359}
-  m_Layer: 7
-  m_Name: Chess_Pawn
+  - component: {fileID: 2036154812202396391}
+  - component: {fileID: 2302316240204679588}
+  - component: {fileID: 6564714877602144907}
+  - component: {fileID: 994732431217929839}
+  m_Layer: 6
+  m_Name: Trump_Dia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1173328113481648743
+--- !u!4 &2036154812202396391
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576769931061952342}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.24, y: 3.34, z: 0}
+  m_GameObject: {fileID: 6701969896332392852}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4990301583040581950
+--- !u!212 &2302316240204679588
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576769931061952342}
+  m_GameObject: {fileID: 6701969896332392852}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,38 +75,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a6b5dcef77486b64bbbb360b07f2b661, type: 3}
+  m_Sprite: {fileID: 21300000, guid: daaba464d685b034f933d2e2c4a9f61b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.3333334, y: 1.3333334}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1227964651162630467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576769931061952342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a99e94808e6aa514b87adfbb91291cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.01
-  health: 4
---- !u!61 &5935449952313369359
+--- !u!61 &6564714877602144907
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576769931061952342}
+  m_GameObject: {fileID: 6701969896332392852}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -136,8 +122,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1.3333334, y: 1.3333334}
+    newSize: {x: 1.3333334, y: 1.3333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -145,3 +131,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &994732431217929839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6701969896332392852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5742e4f0e0b294f48b05eb76674e1e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  speed: 0.01
+  health: 8
+  damage: 6
+  range: 1
+  chessMask:
+    serializedVersion: 2
+    m_Bits: 0
+  beatCooldown: 0
+  targetChessUnit: {fileID: 0}

@@ -26,7 +26,11 @@ public class ChessSlot : MonoBehaviour
 
     private void BuyChess()
     {
-        gms.BuyChess(chessObject, chessSprite);
+        if(gms.sands >= price && !gms.currentChess)
+        {
+            gms.sands -= price;
+            gms.BuyChess(chessObject, chessSprite);
+        }
     }
     private void OnValidate()
     {
