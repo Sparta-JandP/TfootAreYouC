@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6400090526312419140}
   - component: {fileID: -4093175964301501908}
   - component: {fileID: 4299072057354814111}
-  - component: {fileID: -7377755841124629329}
   m_Layer: 6
   m_Name: Trump_Heart
   m_TagString: Enemy
@@ -162,15 +161,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
---- !u!114 &-7377755841124629329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735203229689663012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d92b2e93407ad684db1bed3541365f6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
