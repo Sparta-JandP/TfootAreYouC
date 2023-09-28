@@ -14,12 +14,17 @@ public class GameSceneUIController : MonoBehaviour
     [SerializeField] private Image _kingHealthBar;
     [SerializeField] private Image _trumpBossHealthBar;
 
-    [Header("Stage")]
+    [Header("GameProgress")]
     [SerializeField] private TMP_Text _stageNumText;
     [SerializeField] private GameObject _stageClearPanel;
+    [SerializeField] private GameObject _gameOverPanel;
+    [SerializeField] private GameObject _winPanel;
 
     [Header("Pause")]
     [SerializeField] private GameObject _pausePanel;
+    [SerializeField] private GameObject _pauseBtns;
+    [SerializeField] private GameObject _soundSetting;
+
 
 
     private StageManager _stageManager;
@@ -55,6 +60,7 @@ public class GameSceneUIController : MonoBehaviour
         _pausePanel.SetActive(false);
         _stageClearPanel.SetActive(false);
     }
+
 
     void UpdateStageNumUI()
     {
