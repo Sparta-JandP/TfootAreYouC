@@ -1644,12 +1644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be1280e29fd1df419e9a00a34d738f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnpoints:
-  - {fileID: 1026332975}
-  - {fileID: 921240370}
-  - {fileID: 585986960}
-  - {fileID: 778437355}
-  - {fileID: 2103362049}
+  Tilemap: {fileID: 841045026}
+  spawnPoints: []
   trumps:
   - {fileID: 1216756761300449759, guid: d25ec89b98a90406685d0f035ac4c917, type: 3}
   - {fileID: 6701969896332392852, guid: 89fa533a2a23a4d52903c8726683ba77, type: 3}
@@ -3987,6 +3983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 940510726}
   - component: {fileID: 940510725}
+  - component: {fileID: 940510727}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4032,6 +4029,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &940510727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940510724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfdb2dcdd1a8d14483d3ce0eacab787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mineral: 0
+  mineralText: {fileID: 0}
+  mine: 0
+  maxMineral: 0
+  kingHealth: 0
+  bossHealth: 0
+  maxKingHealth: 0
+  maxBossHealth: 0
+  currentStage: 0
 --- !u!1 &980144953
 GameObject:
   m_ObjectHideFlags: 0
