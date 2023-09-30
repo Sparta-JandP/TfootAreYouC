@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1227964651162630467}
   - component: {fileID: 593744335926315544}
   - component: {fileID: 5952640717470711531}
+  - component: {fileID: 2860276482810097652}
   m_Layer: 7
   m_Name: Chess_MiningPawn
   m_TagString: Untagged
@@ -160,3 +161,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sandObject: {fileID: 5976920297479968240, guid: 76f9aef0b71fd8945aeecce9ade99efd, type: 3}
   cooldown: 5
+--- !u!95 &2860276482810097652
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576769931061952342}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e690929e10d0f473d9c50fe5c7cc3233, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
