@@ -14,7 +14,7 @@ public class TrumpSpawner : MonoBehaviour
 
     private StageManager stageManager;
     private int stageNum;
-    private int stageRate;
+    private float stageRate;
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class TrumpSpawner : MonoBehaviour
 
         stageManager = StageManager.instance;
 
-        //TODO: StartSpawning과 UpdateStage 이벤트에 연결하기
+        //TODO: StartSpawning과 UpdateStage --> 이벤트에 연결하기
         UpdateStage();
         StartSpawning();
     }
@@ -53,11 +53,12 @@ public class TrumpSpawner : MonoBehaviour
     {
         StopCoroutine("RepeateSpawnTrump");
         stageNum = stageManager.currentStage;
-        stageRate = 5 / stageNum; 
+        stageRate = 5f / stageNum; 
     }
 
     IEnumerator RepeateSpawnTrump()
     {
+        Debug.Log(stageRate);
         while (true)
         {
             yield return new WaitForSeconds(stageRate);
