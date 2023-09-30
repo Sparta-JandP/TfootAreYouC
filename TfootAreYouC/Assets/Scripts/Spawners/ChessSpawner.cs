@@ -12,7 +12,9 @@ public class ChessSpawner : MonoBehaviour
     [SerializeField] Sprite[] ChessSprites = new Sprite[6];
     [SerializeField] SpriteRenderer _currentChessSprite;
     [SerializeField] LayerMask _chessLayer;
+    
     private GameObject _currentChess;
+    private int _chessPrice;
 
 
     //추가 부분
@@ -29,6 +31,11 @@ public class ChessSpawner : MonoBehaviour
     {
         _currentChess = Chesses[buttonValue];
         _currentChessSprite.sprite = ChessSprites[buttonValue];
+    }
+
+    public void Pricing(int price)
+    {
+        _chessPrice = price;
     }
 
     private void Update()

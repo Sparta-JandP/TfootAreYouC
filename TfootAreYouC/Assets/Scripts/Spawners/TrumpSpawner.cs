@@ -7,6 +7,7 @@ public class TrumpSpawner : MonoBehaviour
 {
     [SerializeField] private Tilemap Tilemap;
 
+    [HideInInspector]
     public Vector3[] spawnPoints;
 
     public GameObject[] trumps = new GameObject[4]; 

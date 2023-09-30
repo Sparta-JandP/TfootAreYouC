@@ -64,6 +64,15 @@ public class StageManager : MonoBehaviour
         }
         OnMining?.Invoke();
     }
+
+    public void BuyingChess(int price)
+    {
+        if (mineral - price >= 0)
+        {
+            mineral -= price;
+        }
+        else return;
+    }
     
 
     public void AllyKingHealth() //내 왕의 체력
