@@ -39,6 +39,7 @@ public class StageManager : MonoBehaviour
         // 인스턴스를 파괴하지 않음
         DontDestroyOnLoad(gameObject);
 
+        currentStage = 1;
         maxKingHealth = 100; //왕의 최대 체력
         maxBossHealth = (int)Math.Pow(5, currentStage) + 100; //보스의 최대 체력, 스테이지에 따라 다름.
     }
