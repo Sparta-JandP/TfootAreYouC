@@ -12,7 +12,10 @@ public class ChessSpawner : MonoBehaviour
     [SerializeField] Sprite[] ChessSprites = new Sprite[6];
     [SerializeField] SpriteRenderer _currentChessSprite;
     [SerializeField] LayerMask _chessLayer;
+    
     private GameObject _currentChess;
+    private int _chessPrice;
+    StageManager _stageManager;
 
 
     //추가 부분
@@ -22,6 +25,7 @@ public class ChessSpawner : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
+        _stageManager = StageManager.instance;
         _currentChessSprite.enabled = false;
     }
 
@@ -31,35 +35,56 @@ public class ChessSpawner : MonoBehaviour
         _currentChessSprite.sprite = ChessSprites[buttonValue];
     }
 
+    public void Pricing(int price)
+    {
+        _chessPrice = price;
+    }
+
     private void Update()
     {
-        Vector2 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
-
-        Vector3Int coordinate = tilemap.WorldToCell(mouseWorldPos);
-
-        if (tilemap.HasTile(coordinate) && (hit.collider == null || (_chessLayer.value != (_chessLayer.value | (1 << hit.collider.gameObject.layer)))))
+        if (_chessPrice <= _stageManager.mineral)
         {
-            if (_currentChess != null)
-            {
-                _currentChessSprite.enabled = true;
-                _currentChessSprite.color = new Color32(255, 255, 255, 100);
-                _currentChessSprite.transform.position = tilemap.GetCellCenterWorld(coordinate);
+            Vector2 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
 
-                if (Input.GetMouseButtonDown(0))
+            Vector3Int coordinate = tilemap.WorldToCell(mouseWorldPos);
+
+            if (tilemap.HasTile(coordinate) && (hit.collider == null || (_chessLayer.value != (_chessLayer.value | (1 << hit.collider.gameObject.layer)))))
+            {
+                if (_currentChess != null)
                 {
-                    Instantiate(_currentChess, tilemap.GetCellCenterWorld(coordinate), Quaternion.identity);
-                    _currentChess = null;
-                    _currentChessSprite.color = new Color32(255, 255, 255, 255);
-                    _currentChessSprite.sprite = null;
-                    _currentChessSprite.enabled = false;
+                    _currentChessSprite.enabled = true;
+                    _currentChessSprite.color = new Color32(255, 255, 255, 100);
+                    _currentChessSprite.transform.position = tilemap.GetCellCenterWorld(coordinate);
+
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        if (_stageManager.BuyingChess(_chessPrice))
+                        {
+                            Instantiate(_currentChess, tilemap.GetCellCenterWorld(coordinate), Quaternion.identity);
+                        }
+                        ResetSelection();
+                    }
                 }
+            }
+            else
+            {
+                _currentChessSprite.enabled = false;
             }
         }
         else
         {
-            _currentChessSprite.enabled = false;
+            ResetSelection();
         }
+    }
+
+    private void ResetSelection()
+    {
+        _currentChess = null;
+        _currentChessSprite.color = new Color32(255, 255, 255, 255);
+        _currentChessSprite.sprite = null;
+        _currentChessSprite.enabled = false;
+        _chessPrice = 0;
     }
 
 }
