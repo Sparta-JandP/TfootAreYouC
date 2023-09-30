@@ -1133,10 +1133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfdb2dcdd1a8d14483d3ce0eacab787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mineral: 0
-  mineralText: {fileID: 0}
-  mine: 0
-  maxMineral: 0
+  _sandMask:
+    serializedVersion: 2
+    m_Bits: 512
+  mineral: 100
+  mine: 25
+  maxMineral: 400
   kingHealth: 0
   bossHealth: 0
   maxKingHealth: 0

@@ -8,8 +8,9 @@ public class StageManager : MonoBehaviour
 {
     public static StageManager instance;
 
+    [SerializeField] private LayerMask _sandMask;
+
     public int mineral; //현재 자원
-    public TMP_Text mineralText; // TMP Text 변수
     public int mine; //일꾼 유닛이 채굴한 자원
     public int maxMineral; //최대 자원
     public int kingHealth; //왕의 체력
@@ -21,7 +22,7 @@ public class StageManager : MonoBehaviour
     public event Action OnStageClear;
     public event Action OnKingHealthChange;
     public event Action OnBossHealthChange;
-    public event Action OnMining;
+    public event Action OnSandAmountChange;
 
     private void Awake()
     {
@@ -50,28 +51,38 @@ public class StageManager : MonoBehaviour
         bossHealth = maxBossHealth;
     }
 
-    public void Mining() //채굴 유닛의 버튼 클릭 시
+    private void Update()
+    {
+        RaycastHit2D sandHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, _sandMask);
+
+        if (sandHit.collider)
+        {
+        if (Input.GetMouseButtonDown(0))
+            {
+                Mining();
+                Destroy(sandHit.collider.gameObject);
+            }
+        }
+    }
+
+    private void Mining() //채굴 유닛의 버튼 클릭 시
     {
         mineral += mine; //채굴량 설정값 만큼 자원 추가
-        Destroy(gameObject); //아이콘 삭제
         maxMineral = 400; //최대 자원값
         mineral = Mathf.Clamp(mineral, 0, maxMineral); //자원 최대 최소값 설정
 
-        // TMP Text 초기화
-        if (mineralText != null)
-        {
-            mineralText.text = mineral.ToString();
-        }
-        OnMining?.Invoke();
+        OnSandAmountChange?.Invoke();
     }
 
-    public void BuyingChess(int price)
+    public bool BuyingChess(int price)
     {
         if (mineral - price >= 0)
         {
             mineral -= price;
+            OnSandAmountChange?.Invoke();
+            return true;
         }
-        else return;
+        else return false;
     }
     
 
