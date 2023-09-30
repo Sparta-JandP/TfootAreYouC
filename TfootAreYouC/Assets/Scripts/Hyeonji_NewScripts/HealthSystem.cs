@@ -57,8 +57,8 @@ public class HealthSystem : MonoBehaviour
 
         if (CurrentHealth <= 0f)
         {
-            Destroy(gameObject);
             CallDeath();
+            _controller.speed = 0f;
         }
 
         return true;
