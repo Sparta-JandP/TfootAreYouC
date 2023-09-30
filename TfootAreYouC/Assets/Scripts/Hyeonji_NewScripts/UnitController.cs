@@ -12,8 +12,11 @@ public class UnitController : MonoBehaviour
     public int effectPower;
     [HideInInspector]
     public float effectRate;
+    [HideInInspector]
+    public float speed;
 
-    private IEffect effect;
+    private IEffect _effect;
+    private HealthSystem _healthSystem;
 
     private void Awake()
     {
@@ -21,21 +24,35 @@ public class UnitController : MonoBehaviour
         maxHealth = unitStats.maxHealth;
         effectPower = unitStats.effectPower;
         effectRate = unitStats.effectRate;
+        speed = unitStats.speed;
 
-        effect = GetComponent<IEffect>();
+        _effect = GetComponent<IEffect>();
+        _healthSystem = GetComponent<HealthSystem>();
     }
 
     private void Start()
     {
-        if (effect != null)
-            effect.ApplyEffect(effectPower, effectRate);
+        _healthSystem.OnDeath += Die;
+        if (_effect != null)
+            _effect.ApplyEffect(effectPower, effectRate);
     }
 
     private void FixedUpdate()
     {
         if (tag != "Enemy")
-            transform.position += new Vector3(unitStats.speed, 0, 0);
+            transform.position += new Vector3(speed, 0, 0);
         else
-            transform.position -= new Vector3(unitStats.speed, 0, 0);
+            transform.position -= new Vector3(speed, 0, 0);
+    }
+
+    void Die()
+    {
+        StartCoroutine(DestoryObjectOnDeath());
+    }
+
+    IEnumerator DestoryObjectOnDeath()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(gameObject);
     }
 }
