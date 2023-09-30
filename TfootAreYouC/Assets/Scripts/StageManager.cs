@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class StageManager : MonoBehaviour
     public int currentStage; //현재 스테이지
 
     public event Action OnStageClear;
+    public event Action OnStageResume;
+    public event Action OnWin;
+    public event Action OnGameOver;
     public event Action OnKingHealthChange;
     public event Action OnBossHealthChange;
     public event Action OnSandAmountChange;
@@ -37,8 +41,6 @@ public class StageManager : MonoBehaviour
             return;
         }
 
-        // 인스턴스를 파괴하지 않음
-        DontDestroyOnLoad(gameObject);
 
         currentStage = 1;
         maxKingHealth = 100; //왕의 최대 체력
@@ -47,6 +49,7 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
+        currentStage = 1;
         kingHealth = maxKingHealth;
         bossHealth = maxBossHealth;
     }
@@ -109,6 +112,7 @@ public class StageManager : MonoBehaviour
     public void OnDefeat()
     {
         //패배 결과 출력
+        OnGameOver?.Invoke();
     }
 
     public void OnVictory()
@@ -116,7 +120,45 @@ public class StageManager : MonoBehaviour
         //승리 결과 출력
         if(currentStage < 4)
         {
-
+            
         }
+        OnWin?.Invoke();
+    }
+
+    public void OnPause()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void OnResume()
+    {
+        Time.timeScale = 1f;
+    }
+
+    public void OnResetart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync(2);
+    }
+
+    public void OnHome()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync(1);
+    }
+
+    void StageClear()
+    {
+        StartCoroutine(StageClearPause());
+        OnStageClear?.Invoke();
+        Time.timeScale = 0f;
+        //스테이지 정보 업데이트 및 오브젝트 파괴 등 새 스테이지 세팅
+    }
+
+    IEnumerator StageClearPause() 
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        OnStageResume?.Invoke();
+        Time.timeScale = 1f;
     }
 }

@@ -48,6 +48,12 @@ public class GameSceneUIController : MonoBehaviour
         _maxTrumpBossHealth = _stageManager.maxBossHealth;
 
         _stageManager.OnStageClear += UpdateStageNumUI;
+        _stageManager.OnStageClear += OpenStageClear;
+        _stageManager.OnStageResume += CloseStageClear;
+
+        _stageManager.OnWin += OpenWinPanel;
+        _stageManager.OnGameOver += OpenGameOverPanel;
+
         _stageManager.OnSandAmountChange += UpdateSandAmountUI;
         _stageManager.OnKingHealthChange += UpdateKingHealthUI;
         _stageManager.OnBossHealthChange += UpdateTrumpBossHealthUI;
@@ -64,8 +70,7 @@ public class GameSceneUIController : MonoBehaviour
 
     void UpdateStageNumUI()
     {
-        //_stageNum = _stageManager.currentStage; 
-        _stageNum = 3;
+        _stageNum = _stageManager.currentStage; 
         _stageNumText.text = _stageNum.ToString();
     }
 
@@ -88,5 +93,50 @@ public class GameSceneUIController : MonoBehaviour
     {
         _curTrumpBossHealth = _stageManager.bossHealth;
         _trumpBossHealthBar.fillAmount = (float)_curTrumpBossHealth / _maxTrumpBossHealth;
+    }
+
+    public void OpenPausePanel()
+    {
+        _soundSetting.SetActive(false);
+        _pauseBtns.SetActive(true);
+        _pausePanel.SetActive(true);
+    }
+
+    public void ClosePausePanel()
+    {
+        _pausePanel.SetActive(false);
+    }
+
+    public void OpenSoundSetting()
+    {
+        _soundSetting.SetActive(true);
+        _pauseBtns.SetActive(false);
+    }
+
+    public void CloseSoundSetting()
+    {
+        _soundSetting.SetActive(false);
+        _pauseBtns.SetActive(true);
+    }
+
+    void OpenStageClear()
+    {
+        _stageClearPanel.SetActive(true);
+    }
+
+    void CloseStageClear()
+    {
+        _stageClearPanel.SetActive(false);
+    }
+    
+    void OpenWinPanel()
+    {
+        // 보상 UI에 연결
+        _winPanel.SetActive(true);
+    }
+
+    void OpenGameOverPanel()
+    {
+        _gameOverPanel.SetActive(true);
     }
 }
