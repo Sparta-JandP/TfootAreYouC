@@ -9,7 +9,7 @@ public class TrumpSpawner : MonoBehaviour
 
     public Vector3[] spawnPoints;
 
-    public GameObject[] trumps = new GameObject[4];
+    public GameObject[] trumps = new GameObject[4]; 
 
     private StageManager stageManager;
     private int stageNum;
@@ -26,11 +26,11 @@ public class TrumpSpawner : MonoBehaviour
         StartSpawning();
     }
 
-    void SetSpawnPoint()
+    void SetSpawnPoint()    //타일맵의 좌표를 활용해서 마지막 타일맵의 위치값 받아오기
     {
-        int start = Tilemap.cellBounds.min.y;
-        int width = Tilemap.cellBounds.max.x;
-        int height = Tilemap.cellBounds.size.y;
+        int start = Tilemap.cellBounds.min.y;   // TileMap.cellBounds.min : 최소 좌표
+        int width = Tilemap.cellBounds.max.x;   // TileMap.cellBounds.max : 최대 좌표
+        int height = Tilemap.cellBounds.size.y; // TileMap.cellBounds.size : 길이 (개수)
 
         spawnPoints = new Vector3[height];
 
@@ -48,7 +48,7 @@ public class TrumpSpawner : MonoBehaviour
         StartCoroutine("RepeateSpawnTrump");
     }
 
-    void UpdateStage() 
+    void UpdateStage()  //스테이지 난이도가 반영될 수 있도록 & 스테이지가 종료될 때 Spawning이 멈출 수 있도록 (이벤트 연결 필요)
     {
         StopCoroutine("RepeateSpawnTrump");
         stageNum = stageManager.currentStage;
