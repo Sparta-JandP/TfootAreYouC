@@ -19,6 +19,7 @@ public class UnitStats : ScriptableObject
     [Header("Base")]
     public int maxHealth;
     public float speed;
+    public int level = 1;
 
     [Header("Effect")]
     public EffectType type;

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   speed: 0.005
-  type: 0
+  level: 1
+  type: 2
   effectPower: 0
-  effectRange: 0
+  effectRate: 0
