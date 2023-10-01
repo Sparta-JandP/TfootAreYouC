@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Knight_BaseStats
   m_EditorClassIdentifier: 
   maxHealth: 4
-  speed: 0.1
+  speed: 0.01
+  level: 1
   type: 0
   effectPower: 0
-  effectRange: 0
+  effectRate: 0

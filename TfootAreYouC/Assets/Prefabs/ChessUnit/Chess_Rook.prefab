@@ -10,10 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1003670666000198460}
   - component: {fileID: 3747851134251762310}
-  - component: {fileID: 8209936986203311075}
   - component: {fileID: 5028014391992642814}
   - component: {fileID: -8287290725242834445}
   - component: {fileID: 30214965312169417}
+  - component: {fileID: 2137509016656978844}
+  - component: {fileID: 4916442380235365979}
+  - component: {fileID: 2531249117107687311}
+  - component: {fileID: 3355700814178006176}
   m_Layer: 7
   m_Name: Chess_Rook
   m_TagString: Untagged
@@ -88,20 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8209936986203311075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6683956959758201200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a99e94808e6aa514b87adfbb91291cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.005
-  health: 4
 --- !u!61 &5028014391992642814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -195,3 +184,63 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2137509016656978844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683956959758201200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705ee6173eb9445458395138252a7a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStats: {fileID: 11400000, guid: d3f1f50990591e64eadaaecbf7428311, type: 2}
+  target:
+    serializedVersion: 2
+    m_Bits: 64
+  maxHealth: 0
+  effectPower: 0
+  effectRate: 0
+  speed: 0
+--- !u!114 &4916442380235365979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683956959758201200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed73e0533287804a94309dff93ef869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
+--- !u!114 &2531249117107687311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683956959758201200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d2c81b7de8bcd44ebe3e2c4477f2ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &3355700814178006176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683956959758201200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae390adb8be124c8db5c4a6dc7d2995f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -58,7 +58,6 @@ public class TrumpSpawner : MonoBehaviour
 
     IEnumerator RepeateSpawnTrump()
     {
-        Debug.Log(stageRate);
         while (true)
         {
             yield return new WaitForSeconds(stageRate);

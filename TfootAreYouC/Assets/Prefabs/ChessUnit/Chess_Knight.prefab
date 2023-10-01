@@ -10,9 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 725697974461781479}
   - component: {fileID: 3748910477386742559}
-  - component: {fileID: 6861166942008339354}
+  - component: {fileID: -2861593996361576175}
+  - component: {fileID: 7186378923773857106}
+  - component: {fileID: 359883281162659367}
   - component: {fileID: -2663820113943901922}
   - component: {fileID: 8183710529299848589}
+  - component: {fileID: -4810767578543407179}
   m_Layer: 7
   m_Name: Chess_Knight
   m_TagString: Untagged
@@ -87,7 +90,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6861166942008339354
+--- !u!114 &-2861593996361576175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,11 +99,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 8699149982577425998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a99e94808e6aa514b87adfbb91291cd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 705ee6173eb9445458395138252a7a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.01
-  health: 4
+  unitStats: {fileID: 11400000, guid: 2d9458b3c7efd1b439954ca036a6bd6c, type: 2}
+  target:
+    serializedVersion: 2
+    m_Bits: 64
+  maxHealth: 0
+  effectPower: 0
+  effectRate: 0
+  speed: 0
+--- !u!114 &7186378923773857106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699149982577425998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed73e0533287804a94309dff93ef869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
+--- !u!114 &359883281162659367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699149982577425998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae390adb8be124c8db5c4a6dc7d2995f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &-2663820113943901922
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -167,3 +201,30 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &-4810767578543407179
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699149982577425998}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

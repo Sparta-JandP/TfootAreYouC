@@ -14,8 +14,10 @@ GameObject:
   - component: {fileID: -7077731787930845878}
   - component: {fileID: -4152696509941346837}
   - component: {fileID: 8925448615584539755}
+  - component: {fileID: 5544827596666139723}
+  - component: {fileID: 5656209733671039278}
   m_Layer: 7
-  m_Name: Chess_Pawn
+  m_Name: Chess_Pawn_test
   m_TagString: Chess
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,9 +148,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: 69026f5cf553ebe4eb8b340a37a8ab1b, type: 2}
+  target:
+    serializedVersion: 2
+    m_Bits: 64
   maxHealth: 0
   effectPower: 0
   effectRate: 0
+  speed: 0
 --- !u!114 &-4152696509941346837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +189,45 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5544827596666139723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576769931061952342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92b2e93407ad684db1bed3541365f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!50 &5656209733671039278
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576769931061952342}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

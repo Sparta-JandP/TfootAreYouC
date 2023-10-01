@@ -4,12 +4,19 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class StageManager : MonoBehaviour
 {
     public static StageManager instance;
 
     [SerializeField] private LayerMask _sandMask;
+    
+    [SerializeField] private Tilemap board;
+    public int start;
+    public int end;
+    public Vector3 startXPos;
+    public Vector3 endXPos;
 
     public int mineral; //현재 자원
     public int mine; //일꾼 유닛이 채굴한 자원
@@ -34,6 +41,9 @@ public class StageManager : MonoBehaviour
     public GameObject JackCard;
     public GameObject JokerCard;
 
+    private GameObject curKing;
+    private GameObject curBoss;
+
     private void Awake()
     {
         // 이미 인스턴스가 있는지 확인하고, 없으면 현재 스크립트를 인스턴스로 설정
@@ -49,16 +59,22 @@ public class StageManager : MonoBehaviour
 
 
         currentStage = 1;
-        maxKingHealth = 100; //왕의 최대 체력
-        maxBossHealth = (int)Math.Pow(5, currentStage) + 100; //보스의 최대 체력, 스테이지에 따라 다름.
+        KingBossSpawn();
     }
 
     private void Start()
     {
-        currentStage = 1;
+        start = board.cellBounds.min.x;
+        end = board.cellBounds.max.x - 1;
+
+        Vector3Int startPosition = new Vector3Int(start, 0, 0);
+        startXPos = board.GetCellCenterWorld(startPosition);
+
+        Vector3Int endPosition = new Vector3Int(end, 0, 0);
+        endXPos = board.GetCellCenterWorld(endPosition);
+
         kingHealth = maxKingHealth;
         bossHealth = maxBossHealth;
-        KingBossSpawn();
     }
 
     private void Update()
@@ -170,21 +186,21 @@ public class StageManager : MonoBehaviour
     {
         if (currentStage == 1)
         {
-            GameObject newBoss = Instantiate(JackCard);
-            newBoss.transform.position = new Vector3(7f, 0.7f, 0f);
-            GameObject ourKing = Instantiate(King);
-            ourKing.transform.position = new Vector3(-7f, 0.7f, 0f);
+            curBoss = Instantiate(JackCard);
+            curBoss.transform.position = new Vector3(7f, 0.7f, 0f);
+            curKing = Instantiate(King);
+            curKing.transform.position = new Vector3(-7f, 0.7f, 0f);
         }
         if (currentStage == 2)
         {
-            GameObject newBoss = Instantiate(JackCard);
+            GameObject newBoss = Instantiate(QueenCard);
             newBoss.transform.position = new Vector3(7f, 0.7f, 0f);
             GameObject ourKing = Instantiate(King);
             ourKing.transform.position = new Vector3(-7f, 0.7f, 0f);
         }
         if (currentStage == 3)
         {
-            GameObject newBoss = Instantiate(QueenCard);
+            GameObject newBoss = Instantiate(KingCard);
             newBoss.transform.position = new Vector3(7f, 0.7f, 0f);
             GameObject ourKing = Instantiate(King);
             ourKing.transform.position = new Vector3(-7f, 0.7f, 0f);
@@ -196,5 +212,8 @@ public class StageManager : MonoBehaviour
             GameObject ourKing = Instantiate(King);
             ourKing.transform.position = new Vector3(-7f, 0.7f, 0f);
         }
+
+        maxKingHealth = curKing.GetComponent<UnitController>().maxHealth; //왕의 최대 체력
+        maxBossHealth = curBoss.GetComponent<UnitController>().maxHealth; //보스의 최대 체력
     }
 }

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class UnitController : MonoBehaviour
 {
     [SerializeField] private UnitStats unitStats;
+    [SerializeField] private LayerMask target;
 
     [HideInInspector]
     public int maxHealth;
@@ -15,8 +17,17 @@ public class UnitController : MonoBehaviour
     [HideInInspector]
     public float speed;
 
+
+
+
     private IEffect _effect;
     private HealthSystem _healthSystem;
+
+    private int _enemyCount = 0;
+
+    private Vector3 startXPos;
+    private Vector3 endXPos;
+
 
     private void Awake()
     {
@@ -32,6 +43,8 @@ public class UnitController : MonoBehaviour
 
     private void Start()
     {
+        startXPos = StageManager.instance.startXPos;
+        endXPos = StageManager.instance.endXPos;
         _healthSystem.OnDeath += Die;
         if (_effect != null)
             _effect.ApplyEffect(effectPower, effectRate);
@@ -40,9 +53,25 @@ public class UnitController : MonoBehaviour
     private void FixedUpdate()
     {
         if (tag != "Enemy")
+        {
             transform.position += new Vector3(speed, 0, 0);
+            if (transform.position.x >= endXPos.x + 0.5f)
+            {
+                Destroy(gameObject);
+                //TODO: Boss한테 데미지
+            }
+        }
+            
         else
+        {
             transform.position -= new Vector3(speed, 0, 0);
+            if (transform.position.x <= startXPos.x - 0.5f)
+            {
+                Destroy(gameObject);
+                //TODO: Boss한테 데미지
+            }
+        }
+            
     }
 
     void Die()
@@ -54,5 +83,37 @@ public class UnitController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
         Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if ((target.value & (1 << other.gameObject.layer)) != 0)
+        {
+            _enemyCount++;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if ((target.value & (1 << other.gameObject.layer)) != 0)
+        {
+            speed = 0;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if ((target.value & (1 << other.gameObject.layer)) != 0)
+        {
+            _enemyCount--;
+            ResetSpeed();
+
+        }
+    }
+
+
+    public void ResetSpeed()
+    {
+        speed = unitStats.speed;
     }
 }

@@ -10,9 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8375370589145269330}
   - component: {fileID: 8360284062293881736}
-  - component: {fileID: 1714921147478361269}
+  - component: {fileID: 4473101704423437332}
+  - component: {fileID: 3642462036482217370}
+  - component: {fileID: 3013494135267351422}
+  - component: {fileID: 2931791816061117682}
   - component: {fileID: -3270247228537936877}
   - component: {fileID: 3247285513103540962}
+  - component: {fileID: -9086568511981143715}
   m_Layer: 7
   m_Name: Chess_Bishop
   m_TagString: Untagged
@@ -87,7 +91,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1714921147478361269
+--- !u!114 &4473101704423437332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,11 +100,57 @@ MonoBehaviour:
   m_GameObject: {fileID: 5588897112809395179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a99e94808e6aa514b87adfbb91291cd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 705ee6173eb9445458395138252a7a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.005
-  health: 4
+  unitStats: {fileID: 11400000, guid: 5353d3e7a94306d478f7580a82cddab1, type: 2}
+  target:
+    serializedVersion: 2
+    m_Bits: 64
+  maxHealth: 0
+  effectPower: 0
+  effectRate: 0
+  speed: 0
+--- !u!114 &3642462036482217370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588897112809395179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed73e0533287804a94309dff93ef869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
+--- !u!114 &3013494135267351422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588897112809395179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae390adb8be124c8db5c4a6dc7d2995f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2931791816061117682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588897112809395179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17041094b7aa5646be2d689d9d89040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!61 &-3270247228537936877
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -167,3 +217,30 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &-9086568511981143715
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588897112809395179}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
