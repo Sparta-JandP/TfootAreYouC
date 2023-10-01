@@ -1096,9 +1096,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 250838505}
-  - component: {fileID: 250838506}
   - component: {fileID: 250838507}
   - component: {fileID: 250838508}
+  - component: {fileID: 250838509}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -1121,29 +1121,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &250838506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 250838504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bfdb2dcdd1a8d14483d3ce0eacab787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sandMask:
-    serializedVersion: 2
-    m_Bits: 512
-  mineral: 100
-  mine: 25
-  maxMineral: 400
-  kingHealth: 0
-  bossHealth: 0
-  maxKingHealth: 0
-  maxBossHealth: 0
-  currentStage: 0
 --- !u!114 &250838507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,6 +1171,34 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1664
   tilemap: {fileID: 825627217}
+--- !u!114 &250838509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250838504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfdb2dcdd1a8d14483d3ce0eacab787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sandMask:
+    serializedVersion: 2
+    m_Bits: 0
+  mineral: 100
+  mine: 25
+  maxMineral: 400
+  kingHealth: 0
+  bossHealth: 0
+  maxKingHealth: 0
+  maxBossHealth: 0
+  currentStage: 0
+  King: {fileID: 5587571248287976503, guid: d250381522052be4c8e2fd3f1f04ade9, type: 3}
+  KingCard: {fileID: 4816335714998380794, guid: 3cfcc76b16db6df4cbc2194c4367efe6, type: 3}
+  QueenCard: {fileID: 3748540436211240814, guid: 76026c3fda04bca4aae4c07d96ad0fad, type: 3}
+  JackCard: {fileID: 7754798781804518347, guid: 0361da3809f80454f8326b7adbab7fcc, type: 3}
+  JokerCard: {fileID: 7754798781804518347, guid: 562f9b9d656f2cc499d17f9070200e52, type: 3}
 --- !u!1 &257312178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,7 +2767,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250838506}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
         m_MethodName: OnPause
         m_Mode: 1
@@ -4494,7 +4499,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250838506}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
         m_MethodName: OnHome
         m_Mode: 1
@@ -5493,7 +5498,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250838506}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
         m_MethodName: OnResume
         m_Mode: 1
@@ -10667,7 +10672,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250838506}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
         m_MethodName: OnResetart
         m_Mode: 1
