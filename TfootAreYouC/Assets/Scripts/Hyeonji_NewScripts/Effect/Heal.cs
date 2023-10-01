@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heal : MonoBehaviour
+public class Heal : MonoBehaviour, IEffect
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ApplyEffect(int power, float rate)
     {
-        
+        StartCoroutine(HealAction(power, rate));
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator HealAction(int power, float rate)
     {
         
+        yield return new WaitForSeconds(rate);
     }
 }

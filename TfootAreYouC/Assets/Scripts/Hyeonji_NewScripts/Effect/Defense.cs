@@ -52,7 +52,6 @@ public class Defense : MonoBehaviour, IEffect
                 {
                     OnDefenseEnd?.Invoke();  // Rook - 애니메이션에서 standing up 연결
                     _isDefending = false;
-                    _controller.speed = _speed;
                 }
             }
             else if (_enemyCount >= 1)
@@ -61,7 +60,6 @@ public class Defense : MonoBehaviour, IEffect
                 {
                     OnDefenseStart?.Invoke(); // Rook - 애니메이션에서 sitting 연결
                     _isDefending = true;
-                    _controller.speed = 0;
                 }
             }
             yield return new WaitForSeconds(1f);

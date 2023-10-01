@@ -201,6 +201,9 @@ MonoBehaviour:
   effectPower: 0
   effectRate: 0
   speed: 0
+  target:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &4916442380235365979
 MonoBehaviour:
   m_ObjectHideFlags: 0
