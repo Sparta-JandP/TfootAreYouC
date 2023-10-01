@@ -52,7 +52,7 @@ public class UnitController : MonoBehaviour
 
     IEnumerator DestoryObjectOnDeath()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.3f);
         Destroy(gameObject);
     }
 }
