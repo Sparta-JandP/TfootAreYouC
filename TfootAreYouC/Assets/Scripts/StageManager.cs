@@ -28,6 +28,12 @@ public class StageManager : MonoBehaviour
     public event Action OnBossHealthChange;
     public event Action OnSandAmountChange;
 
+    public GameObject King;
+    public GameObject KingCard;
+    public GameObject QueenCard;
+    public GameObject JackCard;
+    public GameObject JokerCard;
+
     private void Awake()
     {
         // 이미 인스턴스가 있는지 확인하고, 없으면 현재 스크립트를 인스턴스로 설정
@@ -52,6 +58,7 @@ public class StageManager : MonoBehaviour
         currentStage = 1;
         kingHealth = maxKingHealth;
         bossHealth = maxBossHealth;
+        KingBossSpawn();
     }
 
     private void Update()
@@ -118,10 +125,6 @@ public class StageManager : MonoBehaviour
     public void OnVictory()
     {
         //승리 결과 출력
-        if(currentStage < 4)
-        {
-            
-        }
         OnWin?.Invoke();
     }
 
@@ -153,6 +156,7 @@ public class StageManager : MonoBehaviour
         OnStageClear?.Invoke();
         Time.timeScale = 0f;
         //스테이지 정보 업데이트 및 오브젝트 파괴 등 새 스테이지 세팅
+        KingBossSpawn();
     }
 
     IEnumerator StageClearPause() 
@@ -160,5 +164,37 @@ public class StageManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(3f);
         OnStageResume?.Invoke();
         Time.timeScale = 1f;
+    }
+
+    void KingBossSpawn()
+    {
+        if (currentStage == 1)
+        {
+            GameObject newBoss = Instantiate(JackCard);
+            newBoss.transform.position = new Vector3(7f, 0.7f, 0f);
+            GameObject ourKing = Instantiate(King);
+            ourKing.transform.position = new Vector3(-7f, 0.7f, 0f);
+        }
+        if (currentStage == 2)
+        {
+            GameObject newBoss = Instantiate(JackCard);
+            newBoss.transform.position = new Vector3(7f, 0.7f, 0f);
+            GameObject ourKing = Instantiate(King);
+            ourKing.transform.position = new Vector3(-7f, 0.7f, 0f);
+        }
+        if (currentStage == 3)
+        {
+            GameObject newBoss = Instantiate(QueenCard);
+            newBoss.transform.position = new Vector3(7f, 0.7f, 0f);
+            GameObject ourKing = Instantiate(King);
+            ourKing.transform.position = new Vector3(-7f, 0.7f, 0f);
+        }
+        if (currentStage == 4)
+        {
+            GameObject newBoss = Instantiate(JokerCard);
+            newBoss.transform.position = new Vector3(7f, 0.7f, 0f);
+            GameObject ourKing = Instantiate(King);
+            ourKing.transform.position = new Vector3(-7f, 0.7f, 0f);
+        }
     }
 }
