@@ -14,8 +14,17 @@ public class GameSceneUIController : MonoBehaviour
     [SerializeField] private Image _kingHealthBar;
     [SerializeField] private Image _trumpBossHealthBar;
 
-    [Header("Stage")]
+    [Header("GameProgress")]
     [SerializeField] private TMP_Text _stageNumText;
+    [SerializeField] private GameObject _stageClearPanel;
+    [SerializeField] private GameObject _gameOverPanel;
+    [SerializeField] private GameObject _winPanel;
+
+    [Header("Pause")]
+    [SerializeField] private GameObject _pausePanel;
+    [SerializeField] private GameObject _pauseBtns;
+    [SerializeField] private GameObject _soundSetting;
+
 
 
     private StageManager _stageManager;
@@ -39,7 +48,13 @@ public class GameSceneUIController : MonoBehaviour
         _maxTrumpBossHealth = _stageManager.maxBossHealth;
 
         _stageManager.OnStageClear += UpdateStageNumUI;
-        _stageManager.OnMining += UpdateSandAmountUI;
+        _stageManager.OnStageClear += OpenStageClear;
+        _stageManager.OnStageResume += CloseStageClear;
+
+        _stageManager.OnWin += OpenWinPanel;
+        _stageManager.OnGameOver += OpenGameOverPanel;
+
+        _stageManager.OnSandAmountChange += UpdateSandAmountUI;
         _stageManager.OnKingHealthChange += UpdateKingHealthUI;
         _stageManager.OnBossHealthChange += UpdateTrumpBossHealthUI;
 
@@ -47,19 +62,21 @@ public class GameSceneUIController : MonoBehaviour
         UpdateSandAmountUI();
         UpdateKingHealthUI();
         UpdateTrumpBossHealthUI();
+
+        _pausePanel.SetActive(false);
+        _stageClearPanel.SetActive(false);
     }
+
 
     void UpdateStageNumUI()
     {
-        //_stageNum = _stageManager.currentStage; 
-        _stageNum = 3;
+        _stageNum = _stageManager.currentStage; 
         _stageNumText.text = _stageNum.ToString();
     }
 
     void UpdateSandAmountUI()
     {
         _curMineral = _stageManager.mineral;
-        _curMineral = 100;
         _mineral.fillAmount = (float)_curMineral / _maxMineral;
         _mineralAmount.text = _curMineral.ToString();
     }
@@ -76,5 +93,50 @@ public class GameSceneUIController : MonoBehaviour
     {
         _curTrumpBossHealth = _stageManager.bossHealth;
         _trumpBossHealthBar.fillAmount = (float)_curTrumpBossHealth / _maxTrumpBossHealth;
+    }
+
+    public void OpenPausePanel()
+    {
+        _soundSetting.SetActive(false);
+        _pauseBtns.SetActive(true);
+        _pausePanel.SetActive(true);
+    }
+
+    public void ClosePausePanel()
+    {
+        _pausePanel.SetActive(false);
+    }
+
+    public void OpenSoundSetting()
+    {
+        _soundSetting.SetActive(true);
+        _pauseBtns.SetActive(false);
+    }
+
+    public void CloseSoundSetting()
+    {
+        _soundSetting.SetActive(false);
+        _pauseBtns.SetActive(true);
+    }
+
+    void OpenStageClear()
+    {
+        _stageClearPanel.SetActive(true);
+    }
+
+    void CloseStageClear()
+    {
+        _stageClearPanel.SetActive(false);
+    }
+    
+    void OpenWinPanel()
+    {
+        // 보상 UI에 연결
+        _winPanel.SetActive(true);
+    }
+
+    void OpenGameOverPanel()
+    {
+        _gameOverPanel.SetActive(true);
     }
 }
