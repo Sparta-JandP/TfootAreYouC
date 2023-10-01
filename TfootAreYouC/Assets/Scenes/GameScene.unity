@@ -1155,7 +1155,7 @@ MonoBehaviour:
   Chesses:
   - {fileID: 576769931061952342, guid: 834de9411ba629c4d97197c4c161b834, type: 3}
   - {fileID: 576769931061952342, guid: 8f7bc5055cba7b0468caea2f247c59d2, type: 3}
-  - {fileID: 6683956959758201200, guid: 1f365c6bb3510f64a8c3de6fc697d023, type: 3}
+  - {fileID: 6683956959758201200, guid: eeb5c27330ab67b43aa555e6f045650f, type: 3}
   - {fileID: 5588897112809395179, guid: fca59924cdac99245b202474129a9567, type: 3}
   - {fileID: 8699149982577425998, guid: 81a5eae6afa734f44b044ac3b166dfcc, type: 3}
   - {fileID: 2452504851755995688, guid: 643ad25d2b716e446b5b7ea2acda7ca6, type: 3}
