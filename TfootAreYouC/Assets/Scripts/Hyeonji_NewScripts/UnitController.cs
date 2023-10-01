@@ -37,7 +37,6 @@ public class UnitController : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpeedControl());
         _healthSystem.OnDeath += Die;
         if (_effect != null)
             _effect.ApplyEffect(effectPower, effectRate);
@@ -64,41 +63,33 @@ public class UnitController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if ((target.value == (target.value | (1 << other.gameObject.layer))))
+        if ((target.value & (1 << other.gameObject.layer)) != 0)
         {
             _enemyCount++;
+            if (_enemyCount == 1) // 첫번째 적과 접촉할 경우
+            {
+                speed = 0;
+                _isFighting = true;
+            }
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if ((target.value == (target.value | (1 << other.gameObject.layer))))
+        if ((target.value & (1 << other.gameObject.layer)) != 0)
         {
             _enemyCount--;
+            if (_enemyCount == 0) // 모든 적과의 접촉이 끝날 경우
+            {
+                ResetSpeed();
+                _isFighting = false;
+            }
         }
     }
 
-    IEnumerator SpeedControl()
+
+    public void ResetSpeed()
     {
-        while (true)
-        {
-            if (_enemyCount == 0)
-            {
-                if (_isFighting == true)
-                {
-                    speed = unitStats.speed;
-                    _isFighting = false;
-                }
-            }
-            else if (_enemyCount >= 1)
-            {
-                if (_isFighting == false)
-                {
-                    speed = 0;
-                    _isFighting = true;
-                }
-            }
-            yield return new WaitForSeconds(1f);
-        }
+        speed = unitStats.speed;
     }
 }

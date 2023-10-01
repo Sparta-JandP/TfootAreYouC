@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1173328113481648743}
   - component: {fileID: 4990301583040581950}
-  - component: {fileID: 1227964651162630467}
   - component: {fileID: 593744335926315544}
-  - component: {fileID: 5952640717470711531}
-  - component: {fileID: 2860276482810097652}
+  - component: {fileID: 5592591437420880473}
+  - component: {fileID: -7392690126197663237}
+  - component: {fileID: 5873223364560504870}
+  - component: {fileID: 8345083787577349416}
   m_Layer: 7
   m_Name: Chess_MiningPawn
-  m_TagString: Untagged
+  m_TagString: Chess
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 0f077fc46f9564e42adc209d5429c533, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -88,20 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1227964651162630467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576769931061952342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a99e94808e6aa514b87adfbb91291cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  health: 4
 --- !u!61 &593744335926315544
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.01243639, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -145,9 +132,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 1.2}
+  m_Size: {x: 0.9751272, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5952640717470711531
+--- !u!114 &5592591437420880473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,12 +143,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 576769931061952342}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b812eedb5f8c6fa47b2971ff86029ae0, type: 3}
+  m_Script: {fileID: 11500000, guid: 705ee6173eb9445458395138252a7a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStats: {fileID: 11400000, guid: 5d08b9c6f1e4ebf4da62c0a19162f38c, type: 2}
+  maxHealth: 0
+  effectPower: 0
+  effectRate: 0
+--- !u!114 &-7392690126197663237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576769931061952342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c12a46a998d6f4d808d9d35fda7fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sandObject: {fileID: 5976920297479968240, guid: 76f9aef0b71fd8945aeecce9ade99efd, type: 3}
-  cooldown: 5
---- !u!95 &2860276482810097652
+--- !u!114 &5873223364560504870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576769931061952342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed73e0533287804a94309dff93ef869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
+--- !u!95 &8345083787577349416
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

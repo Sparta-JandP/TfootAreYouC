@@ -12,13 +12,11 @@ public class Defense : MonoBehaviour, IEffect
     [SerializeField] private LayerMask target;
 
     private int _enemyCount = 0;
-    private float _speed;
     private bool _isDefending;
 
     private void Start()
     {
         _controller = GetComponent<UnitController>();
-        _speed = _controller.speed;
     }
 
     public void ApplyEffect(int power, float rate)
