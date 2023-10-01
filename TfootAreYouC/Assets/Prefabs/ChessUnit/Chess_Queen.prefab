@@ -38,6 +38,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
 --- !u!212 &3770364521318476569
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46,6 +47,7 @@ SpriteRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2452504851755995688}
   m_Enabled: 1
+
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
