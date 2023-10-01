@@ -8,6 +8,10 @@ public class ContactAttack : MonoBehaviour, IEffect
     private bool _isCollidingWithTarget = false;
     private HealthSystem _collidingTargetHealthSystem;
 
+
+    // tag를 LayerMask 로 바꾸는데, LayerMask를 public 으로 설정을 하면 Script 가 붙은 프리팹의 인스펙터에서 이 Layer Mask를 지정할 수 있는데,
+    // 아래에서 조건문을 판별하지 않고, 상대의 layer mask 를 지정해서
+
     public void ApplyEffect(int power, float rate)
     {
         if (tag == "Chess")
@@ -50,7 +54,10 @@ public class ContactAttack : MonoBehaviour, IEffect
             {
                 yield return new WaitForSeconds(rate);
                 _collidingTargetHealthSystem.ChangeHealth(-power);
+                Debug.Log(_collidingTargetHealthSystem.CurrentHealth);
             }
+
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
