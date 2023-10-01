@@ -1,0 +1,295 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: jack_idle
+  serializedVersion: 7
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 0, z: 0.44058207}
+        outSlope: {x: 0, y: 0, z: 0.44058207}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.705034}
+      - serializedVersion: 3
+        time: 0.81
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 0, z: 37.132946}
+        outSlope: {x: 0, y: 0, z: 37.132946}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.2710523}
+      - serializedVersion: 3
+        time: 1.77
+        value: {x: 0, y: 0, z: 10}
+        inSlope: {x: 0, y: 0, z: -7.6070094}
+        outSlope: {x: 0, y: 0, z: -7.6070094}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.23473562}
+      - serializedVersion: 3
+        time: 2.18
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 0, z: -0.24971154}
+        outSlope: {x: 0, y: 0, z: -0.24971154}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 1}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: MainSprite
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves:
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 39ec0eedbc5d6cc42b068e73fe73f29e, type: 3}
+    - time: 0.12
+      value: {fileID: 21300000, guid: 1c12506c7e506874b9864aae875460bb, type: 3}
+    - time: 0.2
+      value: {fileID: 21300000, guid: 9bac5dd37ff05da4591c27fe1d964996, type: 3}
+    - time: 0.94
+      value: {fileID: 21300000, guid: cb50527cd96a48843ac2e2664c9ee18d, type: 3}
+    - time: 1.05
+      value: {fileID: 21300000, guid: 5b74ee282eebbf1478b3b7ac518f3c56, type: 3}
+    - time: 1.14
+      value: {fileID: 21300000, guid: 5a6ca84955a7d1f46bd66f14de26fc4a, type: 3}
+    - time: 1.2
+      value: {fileID: 21300000, guid: f6b1b2295dbda154c8e199c19aa3cea5, type: 3}
+    - time: 1.93
+      value: {fileID: 21300000, guid: e70ec33ea85648f4fbd33ff8da7c7f6f, type: 3}
+    - time: 2.03
+      value: {fileID: 21300000, guid: d6bd4f08b0fa3d94b8bb329e29bbad09, type: 3}
+    - time: 2.5
+      value: {fileID: 21300000, guid: d6bd4f08b0fa3d94b8bb329e29bbad09, type: 3}
+    attribute: m_Sprite
+    path: MainSprite
+    classID: 212
+    script: {fileID: 0}
+    flags: 2
+  m_SampleRate: 100
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - serializedVersion: 2
+      path: 1418253986
+      attribute: 4
+      script: {fileID: 0}
+      typeID: 4
+      customType: 4
+      isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 1418253986
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: 39ec0eedbc5d6cc42b068e73fe73f29e, type: 3}
+    - {fileID: 21300000, guid: 1c12506c7e506874b9864aae875460bb, type: 3}
+    - {fileID: 21300000, guid: 9bac5dd37ff05da4591c27fe1d964996, type: 3}
+    - {fileID: 21300000, guid: cb50527cd96a48843ac2e2664c9ee18d, type: 3}
+    - {fileID: 21300000, guid: 5b74ee282eebbf1478b3b7ac518f3c56, type: 3}
+    - {fileID: 21300000, guid: 5a6ca84955a7d1f46bd66f14de26fc4a, type: 3}
+    - {fileID: 21300000, guid: f6b1b2295dbda154c8e199c19aa3cea5, type: 3}
+    - {fileID: 21300000, guid: e70ec33ea85648f4fbd33ff8da7c7f6f, type: 3}
+    - {fileID: 21300000, guid: d6bd4f08b0fa3d94b8bb329e29bbad09, type: 3}
+    - {fileID: 21300000, guid: d6bd4f08b0fa3d94b8bb329e29bbad09, type: 3}
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 2.51
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 1
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves:
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.81
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: MainSprite
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.81
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: MainSprite
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.44058207
+        outSlope: 0.44058207
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.705034
+      - serializedVersion: 3
+        time: 0.81
+        value: 0
+        inSlope: 37.132946
+        outSlope: 37.132946
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.2710523
+      - serializedVersion: 3
+        time: 1.77
+        value: 10
+        inSlope: -7.6070094
+        outSlope: -7.6070094
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.23473562
+      - serializedVersion: 3
+        time: 2.18
+        value: 0
+        inSlope: -0.24971154
+        outSlope: -0.24971154
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 1
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: MainSprite
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  m_EulerEditorCurves:
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: MainSprite
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: MainSprite
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: MainSprite
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_Events: []
