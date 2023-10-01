@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sandMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   mineral: 100
   mine: 25
   maxMineral: 400
