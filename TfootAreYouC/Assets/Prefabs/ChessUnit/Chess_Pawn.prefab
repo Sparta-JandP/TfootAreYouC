@@ -11,8 +11,11 @@ GameObject:
   - component: {fileID: 1173328113481648743}
   - component: {fileID: 4990301583040581950}
   - component: {fileID: 5935449952313369359}
+  - component: {fileID: 1686727513066422535}
+  - component: {fileID: -5377050671002524790}
+  - component: {fileID: -4982949259300242660}
   - component: {fileID: -5411109234793590119}
-  - component: {fileID: 2456868692643673700}
+  - component: {fileID: 3752253207763849880}
   m_Layer: 7
   m_Name: Chess_Pawn
   m_TagString: Chess
@@ -132,6 +135,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 1.2}
   m_EdgeRadius: 0
+--- !u!114 &1686727513066422535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576769931061952342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705ee6173eb9445458395138252a7a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStats: {fileID: 11400000, guid: 69026f5cf553ebe4eb8b340a37a8ab1b, type: 2}
+  target:
+    serializedVersion: 2
+    m_Bits: 64
+  maxHealth: 0
+  effectPower: 0
+  effectRate: 0
+  speed: 0
+--- !u!114 &-5377050671002524790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576769931061952342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed73e0533287804a94309dff93ef869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
+--- !u!114 &-4982949259300242660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576769931061952342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae390adb8be124c8db5c4a6dc7d2995f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &-5411109234793590119
 Animator:
   serializedVersion: 5
@@ -153,17 +201,30 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2456868692643673700
-MonoBehaviour:
+--- !u!50 &3752253207763849880
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576769931061952342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a99e94808e6aa514b87adfbb91291cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  health: 0
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

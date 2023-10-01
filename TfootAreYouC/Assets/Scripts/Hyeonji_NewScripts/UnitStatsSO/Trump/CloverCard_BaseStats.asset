@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5707358988a18024fad75967c680ee6f, type: 3}
-  m_Name: Knight_BaseStats
+  m_Name: CloverCard_BaseStats
   m_EditorClassIdentifier: 
   maxHealth: 4
-  speed: 0.01
-  level: 1
+  speed: 0.005
   type: 0
-  effectPower: 0
-  effectRate: 0
+  effectPower: 2
+  effectRate: 0.5

@@ -84,7 +84,6 @@ public class GameSceneUIController : MonoBehaviour
     void UpdateKingHealthUI()
     {
         _curKingHealth = _stageManager.kingHealth;
-        Debug.Log(_curKingHealth);
         _kingHealthBar.fillAmount = (float)_curKingHealth / _maxKingHealth;
         
     }

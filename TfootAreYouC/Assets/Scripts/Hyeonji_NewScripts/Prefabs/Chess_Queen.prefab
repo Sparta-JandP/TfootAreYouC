@@ -175,9 +175,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: 3299f2e7196394749bdc91158d8b1410, type: 2}
+  target:
+    serializedVersion: 2
+    m_Bits: 0
   maxHealth: 0
   effectPower: 0
   effectRate: 0
+  speed: 0
 --- !u!114 &-7363731576779253886
 MonoBehaviour:
   m_ObjectHideFlags: 0

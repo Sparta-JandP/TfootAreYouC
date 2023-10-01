@@ -6,11 +6,22 @@ public class ProjectileController : MonoBehaviour
 {
     public float speed = 0.8f;
     public float damage;
+    private Vector3 startXPos;
+    private Vector3 endXPos;
+
+    private void Start()
+    {
+        startXPos = StageManager.instance.startXPos;
+        endXPos = StageManager.instance.endXPos;
+    }
 
     private void Update()
     {
         transform.position += new Vector3(speed * Time.fixedDeltaTime, 0, 0);
-        // Todo: 타일맵 넘어가면 Destroy
+        if (transform.position.x > endXPos.x + 0.5)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
