@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
@@ -15,17 +16,29 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip negative;
     [SerializeField] private AudioClip option;
 
+    [SerializeField] private Button muteButton;
+    [SerializeField] private Button muteOffButton;
+    [SerializeField] private Slider volumeSlider;
+
+    private float currentVolume = 0.5f;  // 현재 음량
 
     private void Awake()
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
-    }
 
+        // 볼륨 슬라이더 초기화
+        volumeSlider.minValue = 0f;
+        volumeSlider.maxValue = 1f;
+        volumeSlider.value = currentVolume;
+
+        // 초기 음량 설정
+        _bgmSource.volume = currentVolume;
+    }
 
     private void OnScSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
-        if(scene.name == "GameScene")
+        if (scene.name == "GameScene")
         {
             PlayBGM(game_bgm);
         }
@@ -35,7 +48,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            if(_bgmSource.clip == game_bgm)
+            if (_bgmSource.clip == game_bgm)
             {
                 PlayBGM(home_bgm);
             }
@@ -46,13 +59,30 @@ public class SoundManager : MonoBehaviour
     {
         _bgmSource.clip = bgm;
         _bgmSource.loop = true;
-        _bgmSource.volume = 0.5f;
         _bgmSource.Play();
+    }
+
+    public void MuteButton() // 음소거 기능
+    {
+        _bgmSource.mute = true;
+        volumeSlider.value = 0f; // 볼륨 슬라이더 값을 0으로 설정
+    }
+
+    public void MuteOffButton() // 음소거 해제 기능
+    {
+        _bgmSource.mute = false;
+        volumeSlider.value = currentVolume; // 이전 볼륨 값으로 복원
+    }
+
+    public void AdjustVolume(float volume) // 음량 조절 기능
+    {
+        _bgmSource.volume = volume;
+        currentVolume = volume; // 현재 볼륨 값 업데이트
     }
 
     public void PlayEffect(string effectName)
     {
-        _effectSource.volume = 0.7f;
+        _effectSource.volume = 0.5f;
 
         switch (effectName)
         {
@@ -73,7 +103,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayEffect(AudioClip effect)
     {
-        _effectSource.volume = 0.7f;
+        _effectSource.volume = 0.5f;
         _effectSource.PlayOneShot(effect);
     }
 }
