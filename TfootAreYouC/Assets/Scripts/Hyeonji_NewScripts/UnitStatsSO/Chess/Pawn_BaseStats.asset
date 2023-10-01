@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pawn_BaseStats
   m_EditorClassIdentifier: 
   maxHealth: 4
-  speed: 0.05
+  speed: 0.005
   level: 1
   type: 0
   effectPower: 4

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4990301583040581950}
   - component: {fileID: 5935449952313369359}
   - component: {fileID: -5411109234793590119}
+  - component: {fileID: 2456868692643673700}
   m_Layer: 7
   m_Name: Chess_Pawn
   m_TagString: Chess
@@ -152,3 +153,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2456868692643673700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576769931061952342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99e94808e6aa514b87adfbb91291cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  health: 0
