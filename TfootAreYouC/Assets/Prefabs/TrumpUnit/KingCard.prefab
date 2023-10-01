@@ -93,12 +93,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7056898752093913622}
-  - component: {fileID: 9116886345310778917}
   - component: {fileID: -606660270434264772}
+  - component: {fileID: 6150586022673480677}
   - component: {fileID: 6875031449645334360}
+  - component: {fileID: 12701092951170962}
+  - component: {fileID: -4655274263574919355}
+  - component: {fileID: 4022811839305059917}
   m_Layer: 0
   m_Name: KingCard
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,19 +122,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9116886345310778917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4816335714998380794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e08c70721a3e99f4fb10147150159562, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!61 &-606660270434264772
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -177,6 +167,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.85, y: 6.6}
   m_EdgeRadius: 0
+--- !u!114 &6150586022673480677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816335714998380794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d2c81b7de8bcd44ebe3e2c4477f2ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!95 &6875031449645334360
 Animator:
   serializedVersion: 5
@@ -198,3 +203,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &12701092951170962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816335714998380794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705ee6173eb9445458395138252a7a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStats: {fileID: 11400000, guid: a3777da4acaaaeb40b22e70c04dce0f6, type: 2}
+  target:
+    serializedVersion: 2
+    m_Bits: 0
+  maxHealth: 0
+  effectPower: 0
+  effectRate: 0
+  speed: 0
+--- !u!114 &-4655274263574919355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816335714998380794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed73e0533287804a94309dff93ef869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
+--- !u!114 &4022811839305059917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816335714998380794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae390adb8be124c8db5c4a6dc7d2995f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

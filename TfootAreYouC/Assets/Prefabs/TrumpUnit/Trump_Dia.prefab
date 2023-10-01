@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 2036154812202396391}
   - component: {fileID: 2302316240204679588}
   - component: {fileID: 6564714877602144907}
-  - component: {fileID: 994732431217929839}
+  - component: {fileID: -6604566594015946034}
+  - component: {fileID: 6970199665133523092}
+  - component: {fileID: -6389751397172014241}
   - component: {fileID: 8661185025841962463}
   m_Layer: 6
   m_Name: Trump_Dia
@@ -132,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &994732431217929839
+--- !u!114 &-6604566594015946034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,19 +143,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 6701969896332392852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5742e4f0e0b294f48b05eb76674e1e55, type: 3}
+  m_Script: {fileID: 11500000, guid: ae390adb8be124c8db5c4a6dc7d2995f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  speed: 0.01
-  health: 8
-  damage: 6
-  range: 1
-  chessMask:
+--- !u!114 &6970199665133523092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6701969896332392852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705ee6173eb9445458395138252a7a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitStats: {fileID: 11400000, guid: 8fb96778a1df8d845a1c4f7dedea6c87, type: 2}
+  target:
     serializedVersion: 2
-    m_Bits: 0
-  beatCooldown: 0
-  targetChessUnit: {fileID: 0}
+    m_Bits: 128
+  maxHealth: 0
+  effectPower: 0
+  effectRate: 0
+  speed: 0
+--- !u!114 &-6389751397172014241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6701969896332392852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed73e0533287804a94309dff93ef869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
 --- !u!95 &8661185025841962463
 Animator:
   serializedVersion: 5
