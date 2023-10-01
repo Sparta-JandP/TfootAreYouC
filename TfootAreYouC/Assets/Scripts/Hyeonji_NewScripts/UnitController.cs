@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class UnitController : MonoBehaviour
 {
     [SerializeField] private UnitStats unitStats;
+    [SerializeField] private LayerMask target;
+    [SerializeField] private Tilemap map;
 
     [HideInInspector]
     public int maxHealth;
@@ -15,13 +18,20 @@ public class UnitController : MonoBehaviour
     [HideInInspector]
     public float speed;
 
-    [SerializeField] private LayerMask target;
+
+
 
     private IEffect _effect;
     private HealthSystem _healthSystem;
 
     private int _enemyCount = 0;
     private bool _isFighting;
+
+    private int start;
+    private int end;
+    private Vector3 startXPos;
+    private Vector3 endXPos;
+
 
     private void Awake()
     {
@@ -37,6 +47,18 @@ public class UnitController : MonoBehaviour
 
     private void Start()
     {
+        map = StageManager.instance.board;
+
+        start = map.cellBounds.min.x;
+        end = map.cellBounds.max.x - 1; 
+
+        Vector3Int startPosition = new Vector3Int(start, 0, 0);
+        startXPos = map.GetCellCenterWorld(startPosition);
+
+        Vector3Int endPosition = new Vector3Int(end, 0, 0);
+        endXPos = map.GetCellCenterWorld(endPosition);
+
+
         _healthSystem.OnDeath += Die;
         if (_effect != null)
             _effect.ApplyEffect(effectPower, effectRate);
@@ -45,9 +67,25 @@ public class UnitController : MonoBehaviour
     private void FixedUpdate()
     {
         if (tag != "Enemy")
+        {
             transform.position += new Vector3(speed, 0, 0);
+            if (transform.position.x >= endXPos.x + 0.5f)
+            {
+                Destroy(gameObject);
+                //TODO: Boss한테 데미지
+            }
+        }
+            
         else
+        {
             transform.position -= new Vector3(speed, 0, 0);
+            if (transform.position.x <= startXPos.x - 0.5f)
+            {
+                Destroy(gameObject);
+                //TODO: Boss한테 데미지
+            }
+        }
+            
     }
 
     void Die()

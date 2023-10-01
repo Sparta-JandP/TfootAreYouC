@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class StageManager : MonoBehaviour
 {
     public static StageManager instance;
 
     [SerializeField] private LayerMask _sandMask;
+    public Tilemap board;
 
     public int mineral; //현재 자원
     public int mine; //일꾼 유닛이 채굴한 자원
