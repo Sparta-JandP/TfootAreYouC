@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1116870835427726929}
   - component: {fileID: 7871678799742926943}
-  - component: {fileID: 2753422697581733308}
   - component: {fileID: -9041866702829180676}
   - component: {fileID: -8485104579997631301}
   - component: {fileID: -5891452073747782075}
@@ -57,20 +56,6 @@ MonoBehaviour:
   shootMask:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &2753422697581733308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2452504851755995688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a99e94808e6aa514b87adfbb91291cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  health: 4
 --- !u!61 &-9041866702829180676
 BoxCollider2D:
   m_ObjectHideFlags: 0
