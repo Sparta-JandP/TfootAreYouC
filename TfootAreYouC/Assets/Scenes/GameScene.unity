@@ -10997,7 +10997,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250838509}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: OnResetart
+        m_MethodName: OnRestart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
