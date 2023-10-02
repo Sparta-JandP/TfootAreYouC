@@ -21,4 +21,9 @@ public class ChangeScene : MonoBehaviour
     {
         UpgradePanel.SetActive(true);
     }
+
+    public void UpgradeExitSceneChange()
+    {
+        UpgradePanel.SetActive(false);
+    }
 }
