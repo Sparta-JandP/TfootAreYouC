@@ -25,4 +25,5 @@ public class UnitStats : ScriptableObject
     public EffectType type;
     public int effectPower; //효과 ex. 공격력, 힐, 마이닝 등) 수치
     public float effectRate; // 효과 주기
+
 }

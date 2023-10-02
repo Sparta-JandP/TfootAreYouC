@@ -16,5 +16,5 @@ MonoBehaviour:
   speed: 0.005
   level: 1
   type: 3
-  effectPower: 2
+  effectPower: 3
   effectRate: 5

@@ -5,26 +5,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject currentChess;
+    public static GameManager instance;
+    public int Coin {get; set;}
 
-    public Sprite currentChessSprite;
-
-    public Transform tiles;
-
-    public LayerMask tileMask;
-
-    public int sands;
-
-    public TextMeshProUGUI sandText;
-
-    public LayerMask sandMask;
-
-
-    private void Update()
+    private void Awake()
     {
-
+        instance = this;
+        Coin = 500000;
     }
 
-
-
+    public bool CoinClamp(int price)
+    {
+        if (Coin - price < 0) return false;
+        Coin -= price;
+        return true;
+    }
 }
