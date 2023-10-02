@@ -6,6 +6,7 @@ public class Defense : MonoBehaviour, IEffect
 {
     public event Action OnDefenseStart;
     public event Action OnDefenseEnd;
+    public event Action OnApplyingEffect;
 
     private UnitController _controller;
 

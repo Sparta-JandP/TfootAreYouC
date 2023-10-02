@@ -9,7 +9,7 @@ public class Heal : MonoBehaviour, IEffect
 
     private UnitController _controller;
 
-    public event Action OnHeal;
+    public event Action OnApplyingEffect;
 
     private void Awake()
     {
@@ -39,7 +39,7 @@ public class Heal : MonoBehaviour, IEffect
                 if (collider != null && (collider.transform.position.y == this.transform.position.y))
                 {
                     _controller.speed = 0;
-                    OnHeal?.Invoke();
+                    OnApplyingEffect?.Invoke();
                     collider.gameObject.GetComponent<HealthSystem>().ChangeHealth(power);
                     yield return new WaitForSeconds(1.2f);
                     _controller.ResetSpeed();

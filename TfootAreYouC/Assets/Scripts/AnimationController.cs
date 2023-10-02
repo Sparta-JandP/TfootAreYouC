@@ -14,7 +14,7 @@ public class AnimationController : MonoBehaviour
     private static readonly int IsDead = Animator.StringToHash("IsDead");
     private static readonly int IsOnDefenseStart = Animator.StringToHash("IsOnDefenseStart");
     private static readonly int IsOnDefenseEnd = Animator.StringToHash("IsOnDefenseEnd");
-    private static readonly int IsHealing = Animator.StringToHash("IsHealing");
+    private static readonly int IsApplyingEffect = Animator.StringToHash("IsApplyingEffect");
 
     private Animator animator;
 
@@ -26,15 +26,15 @@ public class AnimationController : MonoBehaviour
     private void Start()
     {
         gameObject.GetComponent<HealthSystem>().OnDeath += OnDie;
+
         if(gameObject.TryGetComponent<Defense>(out Defense defense))
         {
             defense.OnDefenseStart += OnDefenseStart;
             defense.OnDefenseEnd += OnDefenseEnd;
         }
-
-        if(gameObject.TryGetComponent<Heal>(out Heal heal))
+        else if(gameObject.TryGetComponent<IEffect>(out IEffect effect))
         {
-            heal.OnHeal += OnHeal;
+            effect.OnApplyingEffect += OnApplyingEffect;
         }
 
     }
@@ -54,9 +54,9 @@ public class AnimationController : MonoBehaviour
         animator.SetTrigger(IsOnDefenseEnd);
     }
 
-    private void OnHeal()
+    private void OnApplyingEffect()
     {
-        animator.SetTrigger(IsHealing);
+        animator.SetTrigger(IsApplyingEffect);
     }
 }
 

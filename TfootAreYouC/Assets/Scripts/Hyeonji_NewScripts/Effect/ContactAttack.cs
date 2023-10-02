@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using static UnityEngine.GraphicsBuffer;
 public class ContactAttack : MonoBehaviour, IEffect
 {
     [SerializeField] private LayerMask target;
+
+    public event Action OnApplyingEffect;
 
     private bool _isCollidingWithTarget = false;
     private HealthSystem _collidingTargetHealthSystem;
