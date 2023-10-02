@@ -121,6 +121,8 @@ public class GameSceneUIController : MonoBehaviour
     void OpenStageClear()
     {
         _stageClearPanel.SetActive(true);
+        _maxKingHealth = _stageManager.maxKingHealth;
+        _maxTrumpBossHealth = _stageManager.maxBossHealth;
     }
 
     void CloseStageClear()

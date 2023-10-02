@@ -127,7 +127,7 @@ MonoBehaviour:
   unitStats: {fileID: 11400000, guid: 3299f2e7196394749bdc91158d8b1410, type: 2}
   target:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   maxHealth: 0
   effectPower: 0
   effectRate: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ae3c272e4d772418ce41850ecc7729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5705687606387776825, guid: 257319f23acdb8641823828d8bc783b0, type: 3}
+  bullet: {fileID: 5705687606387776825, guid: 44c67e08590a0694a8c82259831056c0, type: 3}
   shooterOrigin: {fileID: 7581609597838411487}
   shootMask:
     serializedVersion: 2
