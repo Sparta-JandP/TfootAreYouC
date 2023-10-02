@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Chess
+  - DialogPanel
   layers:
   - Default
   - TransparentFX
