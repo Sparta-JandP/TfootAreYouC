@@ -140,4 +140,9 @@ public class GameSceneUIController : MonoBehaviour
     {
         _gameOverPanel.SetActive(true);
     }
+
+    void regame()
+    {
+
+    }
 }
