@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6196905809629414954}
   - component: {fileID: -8974226647835987678}
   - component: {fileID: 5368069600677217170}
+  - component: {fileID: 3949827606090226655}
   - component: {fileID: 4954584849442978083}
   m_Layer: 6
   m_Name: Trump_Clover
@@ -179,6 +180,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae390adb8be124c8db5c4a6dc7d2995f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3949827606090226655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216756761300449759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92b2e93407ad684db1bed3541365f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!95 &4954584849442978083
 Animator:
   serializedVersion: 5
