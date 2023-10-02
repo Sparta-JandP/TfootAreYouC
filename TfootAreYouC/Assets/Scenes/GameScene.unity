@@ -1257,10 +1257,11 @@ MonoBehaviour:
   maxBossHealth: 0
   currentStage: 0
   King: {fileID: 5587571248287976503, guid: d250381522052be4c8e2fd3f1f04ade9, type: 3}
-  KingCard: {fileID: 4816335714998380794, guid: 3cfcc76b16db6df4cbc2194c4367efe6, type: 3}
-  QueenCard: {fileID: 3748540436211240814, guid: 76026c3fda04bca4aae4c07d96ad0fad, type: 3}
-  JackCard: {fileID: 7754798781804518347, guid: 0361da3809f80454f8326b7adbab7fcc, type: 3}
-  JokerCard: {fileID: 7754798781804518347, guid: 562f9b9d656f2cc499d17f9070200e52, type: 3}
+  bossCards:
+  - {fileID: 7754798781804518347, guid: 0361da3809f80454f8326b7adbab7fcc, type: 3}
+  - {fileID: 3748540436211240814, guid: 76026c3fda04bca4aae4c07d96ad0fad, type: 3}
+  - {fileID: 4816335714998380794, guid: 3cfcc76b16db6df4cbc2194c4367efe6, type: 3}
+  - {fileID: 7754798781804518347, guid: 562f9b9d656f2cc499d17f9070200e52, type: 3}
 --- !u!1 &257312178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,9 +2830,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: OnPause
+      - m_Target: {fileID: 1177129052}
+        m_TargetAssemblyTypeName: GameSceneUIController, Assembly-CSharp
+        m_MethodName: OpenPausePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2841,9 +2842,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1177129052}
-        m_TargetAssemblyTypeName: GameSceneUIController, Assembly-CSharp
-        m_MethodName: OpenPausePanel
+      - m_Target: {fileID: 250838509}
+        m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
+        m_MethodName: OnPause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4809,7 +4810,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 250838509}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
         m_MethodName: OnHome
         m_Mode: 1
@@ -5808,7 +5809,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 250838509}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
         m_MethodName: OnResume
         m_Mode: 1
@@ -10994,7 +10995,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 250838509}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
         m_MethodName: OnResetart
         m_Mode: 1

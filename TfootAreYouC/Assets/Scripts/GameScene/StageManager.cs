@@ -36,13 +36,9 @@ public class StageManager : MonoBehaviour
     public event Action OnSandAmountChange;
 
     public GameObject King;
-    public GameObject KingCard;
-    public GameObject QueenCard;
-    public GameObject JackCard;
-    public GameObject JokerCard;
-
     private GameObject curKing;
     private GameObject curBoss;
+    public GameObject[] bossCards;
 
     private void Awake()
     {
@@ -136,12 +132,14 @@ public class StageManager : MonoBehaviour
     {
         //패배 결과 출력
         OnGameOver?.Invoke();
+        Time.timeScale = 1f;
     }
 
     public void OnVictory()
     {
         //승리 결과 출력
         OnWin?.Invoke();
+        Time.timeScale = 1f;
     }
 
     public void OnPause()
@@ -184,33 +182,15 @@ public class StageManager : MonoBehaviour
 
     void SetKingBoss()
     {
-        if (currentStage == 1)
+        if (currentStage >= 1 && currentStage <= 4)
         {
-            curBoss = Instantiate(JackCard);
+            // 현재 스테이지에 해당하는 보스 카드를 인스턴스화합니다.
+            curBoss = Instantiate(bossCards[currentStage - 1]);
             curBoss.transform.position = new Vector3(7f, 0.7f, 0f);
+
+            // 킹 게임 오브젝트를 인스턴스화합니다.
             curKing = Instantiate(King);
             curKing.transform.position = new Vector3(-7f, 0.7f, 0f);
-        }
-        if (currentStage == 2)
-        {
-            GameObject newBoss = Instantiate(QueenCard);
-            newBoss.transform.position = new Vector3(7f, 0.7f, 0f);
-            GameObject ourKing = Instantiate(King);
-            ourKing.transform.position = new Vector3(-7f, 0.7f, 0f);
-        }
-        if (currentStage == 3)
-        {
-            GameObject newBoss = Instantiate(KingCard);
-            newBoss.transform.position = new Vector3(7f, 0.7f, 0f);
-            GameObject ourKing = Instantiate(King);
-            ourKing.transform.position = new Vector3(-7f, 0.7f, 0f);
-        }
-        if (currentStage == 4)
-        {
-            GameObject newBoss = Instantiate(JokerCard);
-            newBoss.transform.position = new Vector3(7f, 0.7f, 0f);
-            GameObject ourKing = Instantiate(King);
-            ourKing.transform.position = new Vector3(-7f, 0.7f, 0f);
         }
 
         maxKingHealth = curKing.GetComponent<UnitController>().maxHealth; //왕의 최대 체력
