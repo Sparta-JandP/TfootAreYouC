@@ -26,25 +26,15 @@ public class AnimationController : MonoBehaviour
     private void Start()
     {
         gameObject.GetComponent<HealthSystem>().OnDeath += OnDie;
+
         if(gameObject.TryGetComponent<Defense>(out Defense defense))
         {
             defense.OnDefenseStart += OnDefenseStart;
             defense.OnDefenseEnd += OnDefenseEnd;
         }
-
-        if(gameObject.TryGetComponent<Heal>(out Heal heal))
+        else if(gameObject.TryGetComponent<IEffect>(out IEffect effect))
         {
-            heal.OnHeal += OnApplyingEffect;
-        }
-
-        if(gameObject.TryGetComponent<ContactAttack>(out ContactAttack attack))
-        {
-            //연결 
-        }
-
-        if(gameObject.TryGetComponent<RangedAttack>(out RangedAttack rangedAttack))
-        {
-            rangedAttack.OnShoot += OnApplyingEffect;
+            effect.OnApplyingEffect += OnApplyingEffect;
         }
 
     }
