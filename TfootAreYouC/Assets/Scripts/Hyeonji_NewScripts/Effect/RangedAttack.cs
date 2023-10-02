@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,6 +13,8 @@ public class RangedAttack : MonoBehaviour, IEffect
     private GameObject target;
     private bool canShoot;
     private float range;
+
+    public event Action OnShoot;
 
     private void Awake()
     {
@@ -52,6 +55,6 @@ public class RangedAttack : MonoBehaviour, IEffect
     {
         GameObject myBullet = Instantiate(bullet, shooterOrigin.position, Quaternion.identity); 
         myBullet.GetComponent<ProjectileController>().damage = power; // 퀸의 effect(attack) power를 bullet에 반영하기
-        Debug.Log("Shoot");
+        OnShoot?.Invoke();
     }
 }
