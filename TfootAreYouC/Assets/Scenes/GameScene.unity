@@ -1211,7 +1211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Chesses:
   - {fileID: 576769931061952342, guid: 73a4678dde61aa1468aa6438d2d97175, type: 3}
-  - {fileID: 576769931061952342, guid: 5b43cc11a43e0c34cb7144f4fefd9911, type: 3}
+  - {fileID: 576769931061952342, guid: 8f7bc5055cba7b0468caea2f247c59d2, type: 3}
   - {fileID: 6683956959758201200, guid: eeb5c27330ab67b43aa555e6f045650f, type: 3}
   - {fileID: 5588897112809395179, guid: 69a8204400b7d53479f3f96d6b81df13, type: 3}
   - {fileID: 8699149982577425998, guid: 81a5eae6afa734f44b044ac3b166dfcc, type: 3}
