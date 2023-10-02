@@ -9,4 +9,9 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene("HomeScene");
     }
+
+    public void GameSceneChange()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
 }
