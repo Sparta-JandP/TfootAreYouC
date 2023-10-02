@@ -38,7 +38,7 @@ public class SoundManager : MonoBehaviour
 
     private void OnScSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
-        if (scene.name == "GameScene")
+        if (scene.name == "GameScene") //음악이 실행중이면 작동 안하도록
         {
             PlayBGM(game_bgm);
         }
