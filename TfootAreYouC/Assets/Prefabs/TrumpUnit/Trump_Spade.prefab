@@ -149,7 +149,7 @@ MonoBehaviour:
   unitStats: {fileID: 11400000, guid: 8d753da890cbc194d9fae2c3fe4375d7, type: 2}
   target:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 128
   maxHealth: 0
   effectPower: 0
   effectRate: 0

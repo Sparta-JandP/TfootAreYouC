@@ -59,7 +59,7 @@ public class StageManager : MonoBehaviour
 
 
         currentStage = 1;
-        KingBossSpawn();
+        SetKingBoss();
     }
 
     private void Start()
@@ -114,22 +114,22 @@ public class StageManager : MonoBehaviour
 
     public void AllyKingHealth() //내 왕의 체력
     {
-        kingHealth = maxKingHealth;
         if(kingHealth <= 0)
         {
             OnDefeat(); //패배 출력
         }
         OnKingHealthChange?.Invoke();
+        Debug.Log($"킹: {kingHealth}");
     }
 
     public void EnemyBossHealth() //적 보스의 체력
     {
-        bossHealth = maxBossHealth;
         if(bossHealth <= 0)
         {
             OnVictory(); //승리 출력
         }
         OnBossHealthChange?.Invoke();
+        Debug.Log($"보스: {bossHealth}");
     }
 
     public void OnDefeat()
@@ -172,7 +172,7 @@ public class StageManager : MonoBehaviour
         OnStageClear?.Invoke();
         Time.timeScale = 0f;
         //스테이지 정보 업데이트 및 오브젝트 파괴 등 새 스테이지 세팅
-        KingBossSpawn();
+        SetKingBoss();
     }
 
     IEnumerator StageClearPause() 
@@ -182,7 +182,7 @@ public class StageManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    void KingBossSpawn()
+    void SetKingBoss()
     {
         if (currentStage == 1)
         {
@@ -215,5 +215,20 @@ public class StageManager : MonoBehaviour
 
         maxKingHealth = curKing.GetComponent<UnitController>().maxHealth; //왕의 최대 체력
         maxBossHealth = curBoss.GetComponent<UnitController>().maxHealth; //보스의 최대 체력
+
+        kingHealth = maxKingHealth;
+        bossHealth = maxBossHealth;
+    }
+
+    public void DamageBoss(int damage)
+    {
+        bossHealth -= damage;
+        EnemyBossHealth();
+    }
+
+    public void DamageKing(int damage)
+    {
+        kingHealth -= damage;
+        AllyKingHealth();
     }
 }
