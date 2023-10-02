@@ -19,8 +19,8 @@ TagManager:
   - Sand
   - Projectile
   - 
-  - 
-  - 
+  - Button
+  - Textbox
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: Button
     uniqueID: 1875014777
+    locked: 0
+  - name: Textbox
+    uniqueID: 378264959
     locked: 0
