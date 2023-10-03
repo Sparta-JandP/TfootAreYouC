@@ -152,7 +152,7 @@ public class StageManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void OnResetart()
+    public void OnRestart()
     {
         Time.timeScale = 1f;
         SceneManager.LoadSceneAsync(2);
