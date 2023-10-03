@@ -69,6 +69,7 @@ public class TrumpSpawner : MonoBehaviour
         int idx = Random.Range(0, 4);
         int r = Random.Range(0, spawnPoints.Length);
         GameObject myTrump = Instantiate(trumps[idx], spawnPoints[r], Quaternion.identity);
+        stageManager.StageObjects.Add(myTrump);
     }
 
 }
