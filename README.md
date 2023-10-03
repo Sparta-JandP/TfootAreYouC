@@ -1,9 +1,9 @@
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?&type=waving&color=gradient&customColorList=0,2,2,5,30&reversal=true&height=250&section=header&text=T발%20너%20C야?&fontSize=90&fontColor=F8F2C1"/><br/>
+<img src="https://capsule-render.vercel.app/api?&type=waving&color=gradient&customColorList=0,2,2,5,30&reversal=true&height=250&section=header&text=TRUMP%20vs%20CHESS&fontSize=90&fontColor=F8F2C1"/><br/>
 
   # 1️⃣ 프로젝트 소개
 ### 프로젝트 명 
-**T발 너 C야?**<br/>( Trump 발사 너 Chess야? )
+**Trump vs Chess**
 ### 프로젝트 소개  
 사악한 Trump 왕국이 착한 Chess 왕국에 쳐들어 옵니다.<br/>
 서로 전쟁을 하는 와중에 플레이어가 체스 왕국을 돕기 위해 나섰습니다.<br/>
