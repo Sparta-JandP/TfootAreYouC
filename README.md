@@ -105,4 +105,8 @@
 <img src="https://img.shields.io/badge/조병우-FF7F7F?style=for-the-badge&logo=googlebard&logoColor=darkgray" /><br/>
 [blog](https://whquddn11.tistory.com/) [Github](https://github.com/Nightshadow0911)<br/>
 
+
+
+<img src="https://img.shields.io/badge/Team J와P-FF8135?style=for-the-badge&logo=googlebard&logoColor=white" /><br/>
+[blog](https://teamsparta.notion.site/01-J-P-fdb333f51e48467aa0ab071b30defad9)
 </div>
