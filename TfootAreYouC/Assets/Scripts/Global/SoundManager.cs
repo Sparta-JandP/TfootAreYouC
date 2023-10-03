@@ -16,50 +16,67 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip negative;
     [SerializeField] private AudioClip option;
 
-    [SerializeField] private Button muteButton;
-    [SerializeField] private Button muteOffButton;
-    [SerializeField] private Slider volumeSlider;
+     public Button muteButton;
+     public Button muteOffButton;
+     public Slider volumeSlider;
 
-    private float currentVolume = 0.5f;  // 현재 음량
+    private float currentVolume = 0.3f;  // 현재 음량
 
     private void Awake()
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // 볼륨 슬라이더 초기화
-        volumeSlider.minValue = 0f;
-        volumeSlider.maxValue = 1f;
-        volumeSlider.value = currentVolume;
-
         // 초기 음량 설정
         _bgmSource.volume = currentVolume;
+
     }
 
-    private void OnScSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
         if (scene.name == "GameScene")
         {
-            PlayBGM(game_bgm);
+            if (_bgmSource.clip == home_bgm)
+            {
+                PlayBGM(game_bgm);
+            }           
         }
         else if (scene.name == "IntroScene")
         {
             PlayBGM(home_bgm);
+            
         }
         else
         {
             if (_bgmSource.clip == game_bgm)
             {
                 PlayBGM(home_bgm);
+                
             }
+        }
+
+        if (scene.name == "GameScene")
+        {
+            // 볼륨 슬라이더 초기화
+            volumeSlider.minValue = 0f;
+            volumeSlider.maxValue = 1f;
+            volumeSlider.value = currentVolume;
         }
     }
 
     private void PlayBGM(AudioClip bgm)
     {
+        
         _bgmSource.clip = bgm;
         _bgmSource.loop = true;
         _bgmSource.Play();
+        
     }
 
     public void MuteButton() // 음소거 기능

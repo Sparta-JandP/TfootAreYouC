@@ -142,23 +142,23 @@ public class StageManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void OnPause()
+    public void OnPause() //일시정지 
     {
         Time.timeScale = 0f;
     }
 
-    public void OnResume()
+    public void OnResume() //계속하기 버튼
     {
         Time.timeScale = 1f;
     }
 
-    public void OnResetart()
+    public void OnRestart() //처음부터 버튼
     {
         Time.timeScale = 1f;
         SceneManager.LoadSceneAsync(2);
     }
 
-    public void OnHome()
+    public void OnHome() //홈으로 가는 버튼
     {
         Time.timeScale = 1f;
         SceneManager.LoadSceneAsync(1);
