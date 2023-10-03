@@ -30,8 +30,6 @@ public class GameSceneUIController : MonoBehaviour
     [SerializeField] private Button muteOffButton;
     [SerializeField] private Slider volumeSlider;
 
-
-
     private StageManager _stageManager;
 
     int _maxMineral;

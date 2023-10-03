@@ -16,9 +16,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip negative;
     [SerializeField] private AudioClip option;
 
-     public Button muteButton;
-     public Button muteOffButton;
-     public Slider volumeSlider;
+    public Button muteButton;
+    public Button muteOffButton;
+    public Slider volumeSlider;
+    
 
     private float currentVolume = 0.3f;  // 현재 음량
 
