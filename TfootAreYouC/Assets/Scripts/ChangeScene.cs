@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour
 {
     public GameObject UpgradePanel;
+    public GameObject GameOverPanel;
 
     public void SceneChange()
     {
@@ -26,4 +27,10 @@ public class ChangeScene : MonoBehaviour
     {
         UpgradePanel.SetActive(false);
     }
+
+    public void RetrySceneChange()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
 }
