@@ -22,7 +22,8 @@ public class Mining : MonoBehaviour, IEffect
         {
             yield return new WaitForSeconds(rate);
             GameObject mySand = Instantiate(sandObject, new Vector3(transform.position.x + UnityEngine.Random.Range(-0.1f, 0.1f), transform.position.y + UnityEngine.Random.Range(-0.3f, -0.3f), 0), Quaternion.identity);
-            mySand.GetComponent<SandResource>().dropToYPos = transform.position.y - 1;          
+            mySand.GetComponent<SandResource>().dropToYPos = transform.position.y - 1;
+            StageManager.instance.StageObjects.Add(mySand);
         }
     }
 }

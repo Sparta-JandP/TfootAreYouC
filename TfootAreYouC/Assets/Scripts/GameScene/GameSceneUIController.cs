@@ -30,6 +30,8 @@ public class GameSceneUIController : MonoBehaviour
     [SerializeField] private Button muteOffButton;
     [SerializeField] private Slider volumeSlider;
 
+    [SerializeField] private GameObject _disablePanel;
+
     private StageManager _stageManager;
 
     int _maxMineral;
@@ -55,9 +57,10 @@ public class GameSceneUIController : MonoBehaviour
         _maxKingHealth = _stageManager.maxKingHealth;
         _maxTrumpBossHealth = _stageManager.maxBossHealth;
 
-        _stageManager.OnStageClear += UpdateStageNumUI;
+        Debug.Log(_stageManager);
         _stageManager.OnStageClear += OpenStageClear;
         _stageManager.OnStageResume += CloseStageClear;
+        _stageManager.OnStageResume += UpdateStageNumUI;
 
         _stageManager.OnWin += OpenWinPanel;
         _stageManager.OnGameOver += OpenGameOverPanel;
@@ -65,6 +68,8 @@ public class GameSceneUIController : MonoBehaviour
         _stageManager.OnSandAmountChange += UpdateSandAmountUI;
         _stageManager.OnKingHealthChange += UpdateKingHealthUI;
         _stageManager.OnBossHealthChange += UpdateTrumpBossHealthUI;
+        _stageManager.OnStageResume += UpdateTrumpBossHealthUI;
+        _stageManager.OnStageResume += UpdateKingHealthUI;
 
         UpdateStageNumUI();
         UpdateSandAmountUI();
@@ -135,7 +140,7 @@ public class GameSceneUIController : MonoBehaviour
 
     void OpenStageClear()
     {
-        _stageClearPanel.SetActive(true);
+        StartCoroutine(StageControl(_stageClearPanel));
         _maxKingHealth = _stageManager.maxKingHealth;
         _maxTrumpBossHealth = _stageManager.maxBossHealth;
     }
@@ -148,16 +153,19 @@ public class GameSceneUIController : MonoBehaviour
     void OpenWinPanel()
     {
         // 보상 UI에 연결
-        _winPanel.SetActive(true);
+        StartCoroutine(StageControl(_winPanel));
     }
 
     void OpenGameOverPanel()
     {
-        _gameOverPanel.SetActive(true);
+        StartCoroutine(StageControl(_gameOverPanel));
     }
 
-    public void CloseGameOverPanel()
+    IEnumerator StageControl(GameObject panel)
     {
-        _gameOverPanel.SetActive(false);
+        _disablePanel.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
+        panel.SetActive(true);
+        _disablePanel.SetActive(false);
     }
 }
