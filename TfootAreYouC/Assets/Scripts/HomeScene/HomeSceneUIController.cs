@@ -23,6 +23,8 @@ public class HomeSceneUIController : MonoBehaviour
         SoundManager.instance.muteButton = this.muteButton;
         SoundManager.instance.muteOffButton = this.muteOffButton;
         SoundManager.instance.volumeSlider = this.volumeSlider;
+
+        UpdateCoin();
     }
 
     private void UpdateCoin()

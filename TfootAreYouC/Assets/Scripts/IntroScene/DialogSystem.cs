@@ -25,7 +25,7 @@ public class DialogSystem : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
-        Next();
+        StartCoroutine(StartDelay());
     }
 
     public void Next()
@@ -44,6 +44,7 @@ public class DialogSystem : MonoBehaviour
 
     IEnumerator TypeSentence(string sentence)
     {
+        yield return new WaitForSeconds(0.1f);
         foreach(var letter in sentence)
         {
             txtSentence.text += letter;
@@ -55,6 +56,12 @@ public class DialogSystem : MonoBehaviour
     {
         txtSentence.text = string.Empty;
         _UIControl.GetComponent<IntroSceneUIController>().OnGameInfoClose();
+    }
+
+    IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Next();
     }
 
 }

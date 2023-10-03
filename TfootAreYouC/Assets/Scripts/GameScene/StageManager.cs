@@ -43,6 +43,8 @@ public class StageManager : MonoBehaviour
 
     public List<GameObject> StageObjects;
 
+    public int reward;
+
     private void Awake()
     {
         // 이미 인스턴스가 있는지 확인하고, 없으면 현재 스크립트를 인스턴스로 설정
@@ -157,6 +159,8 @@ public class StageManager : MonoBehaviour
 
     public void OnVictory()
     {
+        reward = 5000;
+        GameManager.instance.CoinClamp(reward);
         StartCoroutine(WinPause());
         Time.timeScale = 0f;
         foreach (GameObject obj in StageObjects)
@@ -192,6 +196,8 @@ public class StageManager : MonoBehaviour
 
     void StageClear()
     {
+        reward = 800 * currentStage;
+        GameManager.instance.CoinClamp(reward);
         StartCoroutine(StageClearPause());
         Time.timeScale = 0f;
         foreach (GameObject obj in StageObjects)
