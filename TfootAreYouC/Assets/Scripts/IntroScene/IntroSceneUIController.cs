@@ -16,6 +16,7 @@ public class IntroSceneUIController : MonoBehaviour
 
     public void OnGameInfoOpen()
     {
+        SoundManager.instance.PlayEffect("positive");
         _mainCanvasAnim.SetTrigger(Disappear);
         _commentator.SetActive(true);
         _dialog.SetActive(true);

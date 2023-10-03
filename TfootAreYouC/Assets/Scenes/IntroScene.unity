@@ -506,13 +506,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21f2d9c7df505a42b46022aa132081c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bgmSource: {fileID: 0}
-  _effectSource: {fileID: 0}
-  game_bgm: {fileID: 0}
-  home_bgm: {fileID: 0}
-  positive: {fileID: 0}
-  negative: {fileID: 0}
-  option: {fileID: 0}
+  _bgmSource: {fileID: 617967892}
+  _effectSource: {fileID: 617967891}
+  game_bgm: {fileID: 8300000, guid: 94aa62757c1fe7143ba6dc62051e3c91, type: 3}
+  home_bgm: {fileID: 8300000, guid: 939fd7202ce6f56468cd4baa3220456d, type: 3}
+  positive: {fileID: 8300000, guid: 269b0bcbf3346dd47b395db3859b7ca3, type: 3}
+  negative: {fileID: 8300000, guid: 9369a8314aa075f46882bb759adecd4a, type: 3}
+  option: {fileID: 8300000, guid: f90976393e1dd08499ed8a13ab1c9abd, type: 3}
   muteButton: {fileID: 0}
   muteOffButton: {fileID: 0}
   volumeSlider: {fileID: 0}
@@ -716,7 +716,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617967889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -521.6572, y: 271.9295, z: 1.1841626}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
