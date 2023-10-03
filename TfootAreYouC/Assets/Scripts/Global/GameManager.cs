@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,6 +7,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    public event Action OnCoinChange;
     public int Coin {get; set;}
 
     private void Awake()
@@ -18,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         if (Coin - price < 0) return false;
         Coin -= price;
+        OnCoinChange?.Invoke();
         return true;
     }
 }
