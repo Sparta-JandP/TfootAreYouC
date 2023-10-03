@@ -1350,8 +1350,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bgmSource: {fileID: 1751793828}
   _effectSource: {fileID: 1751793827}
-  game_bgm: {fileID: 8300000, guid: fb65658bcdc285f43949b831b0212cd3, type: 3}
-  home_bgm: {fileID: 8300000, guid: 560360a679d893747bc08af8303bf124, type: 3}
+  game_bgm: {fileID: 8300000, guid: 94aa62757c1fe7143ba6dc62051e3c91, type: 3}
+  home_bgm: {fileID: 8300000, guid: 939fd7202ce6f56468cd4baa3220456d, type: 3}
   positive: {fileID: 0}
   negative: {fileID: 0}
   option: {fileID: 0}
