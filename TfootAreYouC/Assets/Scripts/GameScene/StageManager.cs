@@ -122,7 +122,14 @@ public class StageManager : MonoBehaviour
     {
         if(bossHealth <= 0)
         {
-            OnVictory(); //승리 출력
+            if(currentStage < 4)
+            {
+                StageClear();
+            }
+            if(currentStage == 4)
+            {
+                OnVictory(); //승리 출력
+            }
         }
         OnBossHealthChange?.Invoke();
         Debug.Log($"보스: {bossHealth}");
