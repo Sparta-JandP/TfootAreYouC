@@ -38,6 +38,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if (_chessStats[chessNum].level >= maxLevel)
             return;
+        SoundManager.instance.PlayEffect("option");
         selectedChess = chessNum;
         selectedPrice = _chessStats[selectedChess].level * 1200;
         StopCoroutine(InformUpdate());
@@ -93,7 +94,7 @@ public class UpgradeManager : MonoBehaviour
                 _chessStats[selectedChess].effectRate = Mathf.Round(_chessStats[selectedChess].effectRate * 0.8f * 100f) / 100f;
                 break;
         }
-
+        SoundManager.instance.PlayEffect("positive");
         _chessStats[selectedChess].level++;
     }
 

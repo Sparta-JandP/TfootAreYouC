@@ -36,7 +36,7 @@ public class DialogSystem : MonoBehaviour
             return;
         }
         //txtSentence.text = sentences.Dequeue();
-
+        SoundManager.instance.PlayEffect("option");
         txtSentence.text = string.Empty;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentences.Dequeue()));

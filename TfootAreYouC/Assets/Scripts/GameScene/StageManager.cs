@@ -154,12 +154,14 @@ public class StageManager : MonoBehaviour
 
     public void OnRestart() //처음부터 버튼
     {
+        SoundManager.instance.PlayEffect("positive");
         Time.timeScale = 1f;
         SceneManager.LoadSceneAsync(2);
     }
 
     public void OnHome() //홈으로 가는 버튼
     {
+        SoundManager.instance.PlayEffect("negative");
         Time.timeScale = 1f;
         SceneManager.LoadSceneAsync(1);
     }

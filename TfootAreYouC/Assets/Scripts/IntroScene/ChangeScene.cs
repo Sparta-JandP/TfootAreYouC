@@ -10,21 +10,25 @@ public class ChangeScene : MonoBehaviour
 
     public void SceneChange()
     {
+        SoundManager.instance.PlayEffect("positive");
         SceneManager.LoadScene("HomeScene");
     }
 
     public void GameSceneChange()
     {
+        SoundManager.instance.PlayEffect("positive");
         SceneManager.LoadScene("GameScene");
     }
 
     public void UpgradeSceneChange()
     {
+        SoundManager.instance.PlayEffect("positive");
         UpgradePanel.SetActive(true);
     }
 
     public void UpgradeExitSceneChange()
     {
+        SoundManager.instance.PlayEffect("negative");
         UpgradePanel.SetActive(false);
     }
 
