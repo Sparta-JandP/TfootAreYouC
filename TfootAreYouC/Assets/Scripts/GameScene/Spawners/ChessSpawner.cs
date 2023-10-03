@@ -12,7 +12,9 @@ public class ChessSpawner : MonoBehaviour
     [SerializeField] Sprite[] ChessSprites = new Sprite[6];
     [SerializeField] SpriteRenderer _currentChessSprite;
     [SerializeField] LayerMask _chessLayer;
-    
+    [SerializeField] AudioClip _select;
+    [SerializeField] AudioClip _instantiate;
+
     private GameObject _currentChess;
     private int _chessPrice;
     StageManager _stageManager;
@@ -38,6 +40,10 @@ public class ChessSpawner : MonoBehaviour
     public void Pricing(int price)
     {
         _chessPrice = price;
+        if (_chessPrice <= _stageManager.mineral)
+        {
+            SoundManager.instance.PlayEffect(_select);
+        }
     }
 
     private void Update()
@@ -65,6 +71,7 @@ public class ChessSpawner : MonoBehaviour
                             _stageManager.StageObjects.Add(obj);
                         }
                         ResetSelection();
+                        SoundManager.instance.PlayEffect(_instantiate);
                     }
                 }
             }

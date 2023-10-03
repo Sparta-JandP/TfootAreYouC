@@ -51,6 +51,7 @@ public class ContactAttack : MonoBehaviour, IEffect
                     enemy.GetComponent<HealthSystem>().ChangeHealth(-power);
                     OnApplyingEffect?.Invoke();
                 }
+                SoundManager.instance.PlayEffect("contact");
             }
 
             yield return new WaitForSeconds(0.2f);

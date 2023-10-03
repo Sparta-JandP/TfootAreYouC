@@ -16,13 +16,21 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip positive;
     [SerializeField] private AudioClip negative;
     [SerializeField] private AudioClip option;
+    [SerializeField] private AudioClip ranged;
+    [SerializeField] private AudioClip contact;
+    [SerializeField] private AudioClip heal;
+    [SerializeField] private AudioClip mine;
+    [SerializeField] private AudioClip hit;
+    [SerializeField] private AudioClip die;
+
+
 
     public Button muteButton;
     public Button muteOffButton;
     public Slider volumeSlider;
     
 
-    private float currentVolume = 0.3f;  // 현재 음량
+    private float currentVolume = 0.2f;  // 현재 음량
     private float previousVolume;   // Mute 전 음량
     private bool IsOnMute = false;  //Mute일 때, 아닐 때에만 각각의 버튼이 작동하도록
 
@@ -78,6 +86,16 @@ public class SoundManager : MonoBehaviour
         
     }
 
+    public void ReduceBGMVolume()
+    {
+        _bgmSource.volume = currentVolume * 0.5f;
+    }
+
+    public void ResetBGMVolume()
+    {
+        _bgmSource.volume = currentVolume;
+    }
+
     public void PlayEffect(string effectName)
     {
         _effectSource.volume = 0.5f;
@@ -93,8 +111,35 @@ public class SoundManager : MonoBehaviour
                 break;
 
             case "option":
-                _effectSource.volume = 0.5f;
+                _effectSource.volume = 0.7f;
                 _effectSource.PlayOneShot(option);
+                break;
+            case "ranged":
+                _effectSource.volume = 1f;
+                _effectSource.PlayOneShot(ranged);
+                break;
+
+            case "contact":
+                _effectSource.volume = 1f;
+                _effectSource.PlayOneShot(contact);
+                break;
+
+            case "heal":
+                _effectSource.volume = 1f;
+                _effectSource.PlayOneShot(heal);
+                break;
+            case "mine":
+                _effectSource.volume = 0.7f;
+                _effectSource.PlayOneShot(mine);
+                break;
+            case "hit":
+                _effectSource.volume = 1f;
+                _effectSource.PlayOneShot(hit);
+                break;
+
+            case "die":
+                _effectSource.volume = 1f;
+                _effectSource.PlayOneShot(die);
                 break;
         }
     }

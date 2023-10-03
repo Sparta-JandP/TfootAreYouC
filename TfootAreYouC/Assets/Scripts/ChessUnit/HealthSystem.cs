@@ -48,6 +48,7 @@ public class HealthSystem : MonoBehaviour
 
         if (change > 0)
         {
+            SoundManager.instance.PlayEffect("heal");
             OnHeal?.Invoke();
         }
         else
@@ -59,6 +60,7 @@ public class HealthSystem : MonoBehaviour
         {
             CallDeath();
             _controller.speed = 0f;
+            SoundManager.instance.PlayEffect("die");
         }
 
         return true;
