@@ -23,6 +23,9 @@ public class SoundManager : MonoBehaviour
     
 
     private float currentVolume = 0.3f;  // 현재 음량
+    private float previousVolume;   // Mute 전 음량
+    private bool IsOnMute = false;  //Mute일 때, 아닐 때에만 각각의 버튼이 작동하도록
+
 
     private void Awake()
     {
@@ -118,14 +121,24 @@ public class SoundManager : MonoBehaviour
 
     void MuteButton() // 음소거 기능
     {
-        _bgmSource.mute = true;
-        volumeSlider.value = 0f; // 볼륨 슬라이더 값을 0으로 설정
+        if (!IsOnMute)
+        {
+            _bgmSource.mute = true;
+            previousVolume = currentVolume;
+            volumeSlider.value = 0f; // 볼륨 슬라이더 값을 0으로 설정
+            IsOnMute = true;
+        }
     }
 
     void MuteOffButton() // 음소거 해제 기능
     {
-        _bgmSource.mute = false;
-        volumeSlider.value = currentVolume; // 이전 볼륨 값으로 복원
+        if (IsOnMute)
+        {
+            currentVolume = previousVolume;
+            _bgmSource.mute = false;
+            volumeSlider.value = currentVolume; // 이전 볼륨 값으로 복원
+            IsOnMute = false;
+        }
     }
 
     public void AdjustVolume(float volume) // 음량 조절 기능
