@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,6 +23,9 @@ public class SoundManager : MonoBehaviour
     
 
     private float currentVolume = 0.3f;  // 현재 음량
+    private float previousVolume;   // Mute 전 음량
+    private bool IsOnMute = false;  //Mute일 때, 아닐 때에만 각각의 버튼이 작동하도록
+
 
     private void Awake()
     {
@@ -62,13 +66,7 @@ public class SoundManager : MonoBehaviour
             }
         }
 
-        if (scene.name == "GameScene")
-        {
-            // 볼륨 슬라이더 초기화
-            volumeSlider.minValue = 0f;
-            volumeSlider.maxValue = 1f;
-            volumeSlider.value = currentVolume;
-        }
+        StartCoroutine(ResetSoundSettingComponents());
     }
 
     private void PlayBGM(AudioClip bgm)
@@ -78,24 +76,6 @@ public class SoundManager : MonoBehaviour
         _bgmSource.loop = true;
         _bgmSource.Play();
         
-    }
-
-    public void MuteButton() // 음소거 기능
-    {
-        _bgmSource.mute = true;
-        volumeSlider.value = 0f; // 볼륨 슬라이더 값을 0으로 설정
-    }
-
-    public void MuteOffButton() // 음소거 해제 기능
-    {
-        _bgmSource.mute = false;
-        volumeSlider.value = currentVolume; // 이전 볼륨 값으로 복원
-    }
-
-    public void AdjustVolume(float volume) // 음량 조절 기능
-    {
-        _bgmSource.volume = volume;
-        currentVolume = volume; // 현재 볼륨 값 업데이트
     }
 
     public void PlayEffect(string effectName)
@@ -124,4 +104,47 @@ public class SoundManager : MonoBehaviour
         _effectSource.volume = 0.5f;
         _effectSource.PlayOneShot(effect);
     }
+
+    IEnumerator ResetSoundSettingComponents()
+    {
+        yield return new WaitForSeconds(0.2f);
+        if (muteOffButton == null || muteButton == null || volumeSlider == null)
+            yield break;
+        muteButton.onClick.AddListener(MuteButton);
+        muteOffButton.onClick.AddListener(MuteOffButton);
+        volumeSlider.onValueChanged.AddListener(AdjustVolume);
+
+        volumeSlider.minValue = 0f;
+        volumeSlider.maxValue = 1f;
+        volumeSlider.value = currentVolume;
+    }
+
+    void MuteButton() // 음소거 기능
+    {
+        if (!IsOnMute)
+        {
+            _bgmSource.mute = true;
+            previousVolume = currentVolume;
+            volumeSlider.value = 0f; // 볼륨 슬라이더 값을 0으로 설정
+            IsOnMute = true;
+        }
+    }
+
+    void MuteOffButton() // 음소거 해제 기능
+    {
+        if (IsOnMute)
+        {
+            currentVolume = previousVolume;
+            _bgmSource.mute = false;
+            volumeSlider.value = currentVolume; // 이전 볼륨 값으로 복원
+            IsOnMute = false;
+        }
+    }
+
+    public void AdjustVolume(float volume) // 음량 조절 기능
+    {
+        _bgmSource.volume = volume;
+        currentVolume = volume; // 현재 볼륨 값 업데이트
+    }
+
 }
