@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IntroSceneUIController : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class IntroSceneUIController : MonoBehaviour
     private static readonly int Disappear = Animator.StringToHash("Disappear");
     private static readonly int Appear = Animator.StringToHash("Appear");
 
+    public void ToHomeScene()
+    {
+        SoundManager.instance.PlayEffect("positive");
+        SceneManager.LoadScene("HomeScene");
+    }
     public void OnGameInfoOpen()
     {
         SoundManager.instance.PlayEffect("positive");
