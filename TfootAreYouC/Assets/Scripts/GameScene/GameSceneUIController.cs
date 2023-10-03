@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class GameSceneUIController : MonoBehaviour
 {
+    [SerializeField] private GameObject _disablePanel;
+    [SerializeField] private TMP_Text _stageReward;
+    [SerializeField] private TMP_Text _winReward;
+
     [Header("SandClock")]
     [SerializeField] private Image _mineral;
     [SerializeField] private TMP_Text _mineralAmount;
@@ -30,7 +34,6 @@ public class GameSceneUIController : MonoBehaviour
     [SerializeField] private Button muteOffButton;
     [SerializeField] private Slider volumeSlider;
 
-    [SerializeField] private GameObject _disablePanel;
 
     private StageManager _stageManager;
 
@@ -140,6 +143,7 @@ public class GameSceneUIController : MonoBehaviour
 
     void OpenStageClear()
     {
+        _stageReward.text = $"+ {_stageManager.reward}";
         StartCoroutine(StageControl(_stageClearPanel));
         _maxKingHealth = _stageManager.maxKingHealth;
         _maxTrumpBossHealth = _stageManager.maxBossHealth;
@@ -152,7 +156,7 @@ public class GameSceneUIController : MonoBehaviour
     
     void OpenWinPanel()
     {
-        // 보상 UI에 연결
+        _winReward.text = $"+ {_stageManager.reward}";
         StartCoroutine(StageControl(_winPanel));
     }
 

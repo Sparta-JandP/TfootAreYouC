@@ -24,8 +24,8 @@ public class IntroSceneUIController : MonoBehaviour
     {
         SoundManager.instance.PlayEffect("positive");
         _mainCanvasAnim.SetTrigger(Disappear);
-        _commentator.SetActive(true);
-        _dialog.SetActive(true);
+        StartCoroutine(ToggleUI(_commentator, true, 0.4f));
+        StartCoroutine(ToggleUI(_dialog, true, 0.4f));
     }
 
     public void OnGameInfoClose()
@@ -33,13 +33,13 @@ public class IntroSceneUIController : MonoBehaviour
         _mainCanvasAnim.SetTrigger(Appear);
         _commentatorAnim.SetTrigger(Disappear);
         _dialogAnim.SetTrigger(Disappear);
-        StartCoroutine(CloseDefaultUI(_commentator, 0.8f));
-        StartCoroutine(CloseDefaultUI(_dialog, 0.8f));
+        StartCoroutine(ToggleUI(_commentator, false, 0.8f));
+        StartCoroutine(ToggleUI(_dialog, false, 0.8f));
     }
 
-    IEnumerator CloseDefaultUI(GameObject obj, float time)
+    IEnumerator ToggleUI(GameObject obj, bool toggle, float time)
     {
         yield return new WaitForSeconds(time);
-        obj.SetActive(false);
+        obj.SetActive(toggle);
     }
 }
