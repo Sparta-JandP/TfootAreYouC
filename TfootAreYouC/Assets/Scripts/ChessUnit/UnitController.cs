@@ -76,7 +76,7 @@ public class UnitController : MonoBehaviour
             transform.position -= new Vector3(speed, 0, 0);
             if (transform.position.x <= startXPos.x - 0.5f)
             {
-                StageManager.instance.DamageKing(10);
+                StageManager.instance.DamageKing(effectPower * 3);
                 Destroy(gameObject);
             }
         }

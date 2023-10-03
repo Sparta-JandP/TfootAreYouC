@@ -31,6 +31,7 @@ public class ProjectileController : MonoBehaviour
             if (other.TryGetComponent<HealthSystem>(out HealthSystem healthSystem))
             {
                 healthSystem.ChangeHealth(-damage);
+                SoundManager.instance.PlayEffect("ranged");
                 Destroy(gameObject);
             }
         }

@@ -33,7 +33,9 @@ public class GameSceneUIController : MonoBehaviour
     [SerializeField] private Button muteButton;
     [SerializeField] private Button muteOffButton;
     [SerializeField] private Slider volumeSlider;
-
+    [SerializeField] private AudioClip stageClearSound;
+    [SerializeField] private AudioClip winSound;
+    [SerializeField] private AudioClip gameOverSound;
 
     private StageManager _stageManager;
 
@@ -144,7 +146,7 @@ public class GameSceneUIController : MonoBehaviour
     void OpenStageClear()
     {
         _stageReward.text = $"+ {_stageManager.reward}";
-        StartCoroutine(StageControl(_stageClearPanel));
+        StartCoroutine(StageControl(_stageClearPanel, stageClearSound));
         _maxKingHealth = _stageManager.maxKingHealth;
         _maxTrumpBossHealth = _stageManager.maxBossHealth;
     }
@@ -157,19 +159,21 @@ public class GameSceneUIController : MonoBehaviour
     void OpenWinPanel()
     {
         _winReward.text = $"+ {_stageManager.reward}";
-        StartCoroutine(StageControl(_winPanel));
+        StartCoroutine(StageControl(_winPanel, winSound));
     }
 
     void OpenGameOverPanel()
     {
-        StartCoroutine(StageControl(_gameOverPanel));
+        StartCoroutine(StageControl(_gameOverPanel, gameOverSound));
     }
 
-    IEnumerator StageControl(GameObject panel)
+    IEnumerator StageControl(GameObject panel, AudioClip clip)
     {
         _disablePanel.SetActive(true);
         yield return new WaitForSecondsRealtime(2f);
         panel.SetActive(true);
+        SoundManager.instance.PlayEffect(clip);
+        SoundManager.instance.ReduceBGMVolume();
         _disablePanel.SetActive(false);
     }
 }
