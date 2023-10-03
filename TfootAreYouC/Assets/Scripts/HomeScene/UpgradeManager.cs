@@ -51,7 +51,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if (selectedChess != -1)
         {
-            if (GameManager.instance.CoinClamp(selectedPrice))
+            if (GameManager.instance.CoinClamp(-selectedPrice))
             {
                 Upgrade();
                 UpdateWholeUI();    //여기서 inform

@@ -57,5 +57,6 @@ public class RangedAttack : MonoBehaviour, IEffect
     {
         GameObject myBullet = Instantiate(bullet, shooterOrigin.position, Quaternion.identity); 
         myBullet.GetComponent<ProjectileController>().damage = power; // 퀸의 effect(attack) power를 bullet에 반영하기
+        StageManager.instance.StageObjects.Add(myBullet);
     }
 }

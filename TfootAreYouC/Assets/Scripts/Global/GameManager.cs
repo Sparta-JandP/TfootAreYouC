@@ -14,13 +14,14 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        DontDestroyOnLoad(gameObject);
         Coin = 500000;
     }
 
     public bool CoinClamp(int price)
     {
         if (Coin - price < 0) return false;
-        Coin -= price;
+        Coin += price;
         OnCoinChange?.Invoke();
         return true;
     }

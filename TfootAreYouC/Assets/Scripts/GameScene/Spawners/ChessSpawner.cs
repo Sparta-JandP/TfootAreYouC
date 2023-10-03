@@ -60,8 +60,9 @@ public class ChessSpawner : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         if (_stageManager.BuyingChess(_chessPrice))
-                        {
-                            Instantiate(_currentChess, tilemap.GetCellCenterWorld(coordinate), Quaternion.identity);
+                        { 
+                            GameObject obj = Instantiate(_currentChess, tilemap.GetCellCenterWorld(coordinate), Quaternion.identity);
+                            _stageManager.StageObjects.Add(obj);
                         }
                         ResetSelection();
                     }

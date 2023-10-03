@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 4588456507930043055}
   - component: {fileID: -3129635769948770929}
   - component: {fileID: -7994286087735019968}
+  - component: {fileID: 8029182969434398198}
   m_Layer: 0
   m_Name: JokerCard
   m_TagString: Enemy
@@ -178,7 +179,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3a9ff5600cd504940bd17df87800c055, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -235,3 +236,15 @@ MonoBehaviour:
   effectPower: 0
   effectRate: 0
   speed: 0
+--- !u!114 &8029182969434398198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7754798781804518347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae390adb8be124c8db5c4a6dc7d2995f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

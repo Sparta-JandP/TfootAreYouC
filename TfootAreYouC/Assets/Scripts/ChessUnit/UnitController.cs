@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +32,8 @@ public class UnitController : MonoBehaviour
     private Vector3 startXPos;
     private Vector3 endXPos;
 
+    public static event Action<GameObject> OnDestroyed = delegate { };
+
 
     private void Awake()
     {
@@ -48,6 +51,7 @@ public class UnitController : MonoBehaviour
 
     private void Start()
     {
+
         startXPos = StageManager.instance.startXPos;
         endXPos = StageManager.instance.endXPos;
         _healthSystem.OnDeath += Die;
@@ -122,4 +126,8 @@ public class UnitController : MonoBehaviour
         speed = unitStats.speed;
     }
 
+    private void OnDestroy()
+    {
+        OnDestroyed(gameObject);
+    }
 }
