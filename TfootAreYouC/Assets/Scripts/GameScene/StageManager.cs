@@ -227,7 +227,6 @@ public class StageManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.5f);
         Destroy(curBoss);
         yield return new WaitForSecondsRealtime(3f);
-        Destroy(curKing);
     }
 
     IEnumerator DefeatPause()
