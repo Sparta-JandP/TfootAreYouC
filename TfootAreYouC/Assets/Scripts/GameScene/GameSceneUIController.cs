@@ -107,6 +107,7 @@ public class GameSceneUIController : MonoBehaviour
 
     public void OpenPausePanel()
     {
+        SoundManager.instance.PlayEffect("positive");
         _soundSetting.SetActive(false);
         _pauseBtns.SetActive(true);
         _pausePanel.SetActive(true);
@@ -114,17 +115,20 @@ public class GameSceneUIController : MonoBehaviour
 
     public void ClosePausePanel()
     {
+        SoundManager.instance.PlayEffect("negative");
         _pausePanel.SetActive(false);
     }
 
     public void OpenSoundSetting()
     {
+        SoundManager.instance.PlayEffect("positive");
         _soundSetting.SetActive(true);
         _pauseBtns.SetActive(false);
     }
 
     public void CloseSoundSetting()
     {
+        SoundManager.instance.PlayEffect("negative");
         _soundSetting.SetActive(false);
         _pauseBtns.SetActive(true);
     }
