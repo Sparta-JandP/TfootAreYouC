@@ -3897,8 +3897,8 @@ MonoBehaviour:
   m_text: "\uBAA8\uB798 2\uCD08\uB9C8\uB2E4 \uC0DD\uC131 \uBAA8\uB798 2\uCD08\uB9C8\uB2E4
     \uC0DD\uC131"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 92082d816484bd543b8f7db2c4af6516, type: 2}
-  m_sharedMaterial: {fileID: 47734788230412646, guid: 92082d816484bd543b8f7db2c4af6516, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79a608b8a900ab249b897f491e209dea, type: 2}
+  m_sharedMaterial: {fileID: 1476648072327610022, guid: 79a608b8a900ab249b897f491e209dea, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
