@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Threading;
+using UnityEngine.SceneManagement;
 
 public class DialogSystem : MonoBehaviour
 {
-    public TMP_Text txtName;
     public TMP_Text txtSentence;
+    [SerializeField] private GameObject _UIControl;
 
     Queue<string> sentences = new Queue<string>();
 
@@ -16,13 +18,9 @@ public class DialogSystem : MonoBehaviour
 
     public void Begin(Dialogue Info)
     {
-        anim.SetBool("IsOpen", true);
-
         sentences.Clear();
 
-        txtName.text = Info.name;
-
-        foreach(var sentence in Info.sentences)
+        foreach (var sentence in Info.sentences)
         {
             sentences.Enqueue(sentence);
         }
@@ -55,7 +53,8 @@ public class DialogSystem : MonoBehaviour
 
     private void End()
     {
-        anim.SetBool("IsOpen", false);
         txtSentence.text = string.Empty;
+        _UIControl.GetComponent<IntroSceneUIController>().OnGameInfoClose();
     }
+
 }
