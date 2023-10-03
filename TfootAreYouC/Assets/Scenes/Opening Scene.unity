@@ -726,8 +726,8 @@ MonoBehaviour:
   m_text: "T<size=50>rump</size>  \uBC1C<size=50>\uC0AC</size>  \uB108  C<size=50>hess</size>
     \uC57C?"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5fb0e5bd5bbfcbc49bc0d5f2f8cfb061, type: 2}
-  m_sharedMaterial: {fileID: 856677385076431718, guid: 5fb0e5bd5bbfcbc49bc0d5f2f8cfb061, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1437,7 +1437,7 @@ Transform:
   m_GameObject: {fileID: 2109073053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

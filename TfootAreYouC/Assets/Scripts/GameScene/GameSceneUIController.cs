@@ -65,6 +65,7 @@ public class GameSceneUIController : MonoBehaviour
 
         _pausePanel.SetActive(false);
         _stageClearPanel.SetActive(false);
+        _gameOverPanel.SetActive(false);
     }
 
 
@@ -139,5 +140,10 @@ public class GameSceneUIController : MonoBehaviour
     void OpenGameOverPanel()
     {
         _gameOverPanel.SetActive(true);
+    }
+
+    public void CloseGameOverPanel()
+    {
+        _gameOverPanel.SetActive(false);
     }
 }
