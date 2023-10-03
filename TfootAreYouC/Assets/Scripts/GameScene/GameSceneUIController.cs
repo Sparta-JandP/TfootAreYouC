@@ -25,6 +25,11 @@ public class GameSceneUIController : MonoBehaviour
     [SerializeField] private GameObject _pauseBtns;
     [SerializeField] private GameObject _soundSetting;
 
+    [Header("Sound")]
+    [SerializeField] private Button muteButton;
+    [SerializeField] private Button muteOffButton;
+    [SerializeField] private Slider volumeSlider;
+
 
 
     private StageManager _stageManager;
@@ -38,7 +43,12 @@ public class GameSceneUIController : MonoBehaviour
     int _curKingHealth;
     int _curTrumpBossHealth;
 
-
+    private void Awake()
+    {
+        SoundManager.instance.muteButton = this.muteButton;
+        SoundManager.instance.muteOffButton = this.muteOffButton;
+        SoundManager.instance.volumeSlider = this.volumeSlider;
+    }
     void Start()
     {
         _stageManager = StageManager.instance;
@@ -66,6 +76,8 @@ public class GameSceneUIController : MonoBehaviour
         _pausePanel.SetActive(false);
         _stageClearPanel.SetActive(false);
         _gameOverPanel.SetActive(false);
+
+        
     }
 
 
