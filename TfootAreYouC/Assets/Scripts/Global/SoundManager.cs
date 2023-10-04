@@ -35,6 +35,7 @@ public class SoundManager : MonoBehaviour
     private bool IsOnMute = false;  //Mute일 때, 아닐 때에만 각각의 버튼이 작동하도록
 
 
+
     private void Awake()
     {
         instance = this;
@@ -115,7 +116,7 @@ public class SoundManager : MonoBehaviour
                 _effectSource.PlayOneShot(option);
                 break;
             case "ranged":
-                _effectSource.volume = 1f;
+                _effectSource.volume = 0.5f;
                 _effectSource.PlayOneShot(ranged);
                 break;
 
@@ -146,6 +147,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayEffect(AudioClip effect)
     {
+
         _effectSource.volume = 0.5f;
         _effectSource.PlayOneShot(effect);
     }

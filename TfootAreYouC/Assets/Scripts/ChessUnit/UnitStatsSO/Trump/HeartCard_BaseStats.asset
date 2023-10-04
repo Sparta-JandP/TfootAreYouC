@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5707358988a18024fad75967c680ee6f, type: 3}
   m_Name: HeartCard_BaseStats
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 6
   speed: 0.005
   level: 1
   type: 0
-  effectPower: 4
-  effectRate: 1
+  effectPower: 1
+  effectRate: 4
