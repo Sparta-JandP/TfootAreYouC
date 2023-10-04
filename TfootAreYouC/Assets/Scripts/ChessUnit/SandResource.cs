@@ -20,8 +20,11 @@ public class SandResource : MonoBehaviour
 
         if(hit.collider && hit.collider.gameObject == gameObject)
         {
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
+            {
+                SoundManager.instance.PlayEffect("obtain");
                 Destroy(gameObject);
+            } 
         }
     }
 }

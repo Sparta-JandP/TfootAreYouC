@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
-        Coin = 500000;
+        Coin = PlayerPrefs.GetInt("Coin", 1000); ;
     }
 
     public bool CoinClamp(int price)
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
         if (Coin - price < 0) return false;
         Coin += price;
         OnCoinChange?.Invoke();
+        PlayerPrefs.SetInt("Coin", Coin);
         return true;
     }
 }

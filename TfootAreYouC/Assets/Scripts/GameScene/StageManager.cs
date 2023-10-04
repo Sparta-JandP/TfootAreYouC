@@ -11,7 +11,8 @@ public class StageManager : MonoBehaviour
     public static StageManager instance;
 
     [SerializeField] private LayerMask _sandMask;
-    
+    [SerializeField] private AudioClip _obtain;
+
     [SerializeField] private Tilemap board;
     public int start;
     public int end;
@@ -92,7 +93,7 @@ public class StageManager : MonoBehaviour
         mineral += mine; //채굴량 설정값 만큼 자원 추가
         maxMineral = 400; //최대 자원값
         mineral = Mathf.Clamp(mineral, 0, maxMineral); //자원 최대 최소값 설정
-
+        SoundManager.instance.PlayEffect(_obtain);
         OnSandAmountChange?.Invoke();
     }
 
@@ -115,7 +116,9 @@ public class StageManager : MonoBehaviour
             OnDefeat(); //패배 출력
         }
         OnKingHealthChange?.Invoke();
-        Debug.Log($"킹: {kingHealth}");
+
+        SoundManager.instance.PlayEffect("hit");
+
     }
 
     public void EnemyBossHealth() //적 보스의 체력
@@ -132,7 +135,8 @@ public class StageManager : MonoBehaviour
             }
         }
         OnBossHealthChange?.Invoke();
-        Debug.Log($"보스: {bossHealth}");
+
+        SoundManager.instance.PlayEffect("hit");
     }
 
     public void OnDefeat()
@@ -187,6 +191,7 @@ public class StageManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(3f);
         OnStageResume?.Invoke();
         Time.timeScale = 1f;
+        SoundManager.instance.ResetBGMVolume();
     }
 
     void SetKingBoss()
