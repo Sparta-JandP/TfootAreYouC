@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -41,6 +42,10 @@ public class StageManager : MonoBehaviour
     private GameObject curBoss;
     public GameObject[] bossCards;
 
+    public List<GameObject> StageObjects;
+
+    public int reward;
+
     private void Awake()
     {
         // 이미 인스턴스가 있는지 확인하고, 없으면 현재 스크립트를 인스턴스로 설정
@@ -57,6 +62,10 @@ public class StageManager : MonoBehaviour
 
         currentStage = 1;
         SetKingBoss();
+    }
+    private void OnEnable()
+    {
+        UnitController.OnDestroyed += RemoveObjectFromList;
     }
 
     private void Start()
@@ -80,7 +89,7 @@ public class StageManager : MonoBehaviour
 
         if (sandHit.collider)
         {
-        if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 Mining();
                 Destroy(sandHit.collider.gameObject);
@@ -107,50 +116,61 @@ public class StageManager : MonoBehaviour
         }
         else return false;
     }
-    
+
 
     public void AllyKingHealth() //내 왕의 체력
     {
-        if(kingHealth <= 0)
+
+        if (kingHealth <= 0)
         {
+            curKing.GetComponent<HealthSystem>().ChangeHealth(-maxKingHealth);
             OnDefeat(); //패배 출력
         }
         OnKingHealthChange?.Invoke();
-
         SoundManager.instance.PlayEffect("hit");
-
     }
 
     public void EnemyBossHealth() //적 보스의 체력
     {
-        if(bossHealth <= 0)
+        if (bossHealth <= 0)
         {
-            if(currentStage < 4)
+            curBoss.GetComponent<HealthSystem>().ChangeHealth(-maxBossHealth);
+            Debug.Log(curBoss.GetComponent<HealthSystem>());
+            if (currentStage < 4)
             {
                 StageClear();
             }
-            if(currentStage == 4)
+            else if (currentStage >= 4)
             {
                 OnVictory(); //승리 출력
             }
         }
         OnBossHealthChange?.Invoke();
-
         SoundManager.instance.PlayEffect("hit");
     }
 
     public void OnDefeat()
     {
-        //패배 결과 출력
-        OnGameOver?.Invoke();
-        Time.timeScale = 1f;
+        StartCoroutine(DefeatPause());
+        Time.timeScale = 0f;
+        foreach (GameObject obj in StageObjects)
+        {
+            Destroy(obj);
+        }
+        StageObjects.Clear();
     }
 
     public void OnVictory()
     {
-        //승리 결과 출력 
-        OnWin?.Invoke();
-        Time.timeScale = 1f;
+        reward = 5000;
+        GameManager.instance.CoinClamp(reward);
+        StartCoroutine(WinPause());
+        Time.timeScale = 0f;
+        foreach (GameObject obj in StageObjects)
+        {
+            Destroy(obj);
+        }
+        StageObjects.Clear();
     }
 
     public void OnPause() //일시정지 
@@ -179,19 +199,46 @@ public class StageManager : MonoBehaviour
 
     void StageClear()
     {
+        reward = 800 * currentStage;
+        GameManager.instance.CoinClamp(reward);
         StartCoroutine(StageClearPause());
-        OnStageClear?.Invoke();
         Time.timeScale = 0f;
-        //스테이지 정보 업데이트 및 오브젝트 파괴 등 새 스테이지 세팅
-        SetKingBoss();
+        foreach (GameObject obj in StageObjects)
+        {
+            Destroy(obj);
+        }
+        StageObjects.Clear();
     }
 
-    IEnumerator StageClearPause() 
+    IEnumerator StageClearPause()
     {
+        currentStage++;
+        Debug.Log(OnStageClear);
+        OnStageClear?.Invoke();
+        yield return new WaitForSecondsRealtime(1.5f);
+        Destroy(curBoss);
         yield return new WaitForSecondsRealtime(3f);
+        Destroy(curKing);
+        SetKingBoss();
         OnStageResume?.Invoke();
         Time.timeScale = 1f;
         SoundManager.instance.ResetBGMVolume();
+    }
+
+    IEnumerator WinPause()
+    {
+        OnWin?.Invoke();
+        yield return new WaitForSecondsRealtime(1.5f);
+        Destroy(curBoss);
+        yield return new WaitForSecondsRealtime(3f);
+    }
+
+    IEnumerator DefeatPause()
+    {
+        OnGameOver?.Invoke();
+        yield return new WaitForSecondsRealtime(1.5f);
+        Destroy(curKing);
+        yield return new WaitForSecondsRealtime(3f);
     }
 
     void SetKingBoss()
@@ -224,5 +271,26 @@ public class StageManager : MonoBehaviour
     {
         kingHealth -= damage;
         AllyKingHealth();
+    }
+
+    private void RemoveObjectFromList(GameObject obj)
+    {
+        if (StageObjects == null) return;
+
+        if (StageObjects.Contains(obj))
+        {
+            StageObjects.Remove(obj);
+        }
+    }
+
+    private void OnDisable()
+    {
+        UnitController.OnDestroyed -= RemoveObjectFromList;
+    }
+
+    public void Win()
+    {
+        bossHealth = 10;
+        DamageBoss(10);
     }
 }
