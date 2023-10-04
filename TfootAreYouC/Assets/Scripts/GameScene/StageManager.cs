@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -41,10 +40,6 @@ public class StageManager : MonoBehaviour
     private GameObject curBoss;
     public GameObject[] bossCards;
 
-    public List<GameObject> StageObjects;
-
-    public int reward;
-
     private void Awake()
     {
         // 이미 인스턴스가 있는지 확인하고, 없으면 현재 스크립트를 인스턴스로 설정
@@ -61,10 +56,6 @@ public class StageManager : MonoBehaviour
 
         currentStage = 1;
         SetKingBoss();
-    }
-    private void OnEnable()
-    {
-        UnitController.OnDestroyed += RemoveObjectFromList;
     }
 
     private void Start()
@@ -119,55 +110,43 @@ public class StageManager : MonoBehaviour
 
     public void AllyKingHealth() //내 왕의 체력
     {
-
         if(kingHealth <= 0)
         {
-            curKing.GetComponent<HealthSystem>().ChangeHealth(-maxKingHealth);
             OnDefeat(); //패배 출력
         }
         OnKingHealthChange?.Invoke();
+        Debug.Log($"킹: {kingHealth}");
     }
 
     public void EnemyBossHealth() //적 보스의 체력
     {
         if(bossHealth <= 0)
         {
-            curBoss.GetComponent<HealthSystem>().ChangeHealth(-maxBossHealth);
-            Debug.Log(curBoss.GetComponent<HealthSystem>());
-            if (currentStage < 4)
+            if(currentStage < 4)
             {
                 StageClear();
             }
-            else if(currentStage >= 4)
+            if(currentStage == 4)
             {
                 OnVictory(); //승리 출력
             }
         }
         OnBossHealthChange?.Invoke();
+        Debug.Log($"보스: {bossHealth}");
     }
 
     public void OnDefeat()
     {
-        StartCoroutine(DefeatPause());
-        Time.timeScale = 0f;
-        foreach (GameObject obj in StageObjects)
-        {
-            Destroy(obj);
-        }
-        StageObjects.Clear();
+        //패배 결과 출력
+        OnGameOver?.Invoke();
+        Time.timeScale = 1f;
     }
 
     public void OnVictory()
     {
-        reward = 5000;
-        GameManager.instance.CoinClamp(reward);
-        StartCoroutine(WinPause());
-        Time.timeScale = 0f;
-        foreach (GameObject obj in StageObjects)
-        {
-            Destroy(obj);
-        }
-        StageObjects.Clear();
+        //승리 결과 출력 
+        OnWin?.Invoke();
+        Time.timeScale = 1f;
     }
 
     public void OnPause() //일시정지 
@@ -196,45 +175,18 @@ public class StageManager : MonoBehaviour
 
     void StageClear()
     {
-        reward = 800 * currentStage;
-        GameManager.instance.CoinClamp(reward);
         StartCoroutine(StageClearPause());
+        OnStageClear?.Invoke();
         Time.timeScale = 0f;
-        foreach (GameObject obj in StageObjects)
-        {
-            Destroy(obj);
-        }
-        StageObjects.Clear();
+        //스테이지 정보 업데이트 및 오브젝트 파괴 등 새 스테이지 세팅
+        SetKingBoss();
     }
 
     IEnumerator StageClearPause() 
     {
-        currentStage++;
-        Debug.Log(OnStageClear);
-        OnStageClear?.Invoke();
-        yield return new WaitForSecondsRealtime(1.5f);
-        Destroy(curBoss);
         yield return new WaitForSecondsRealtime(3f);
-        Destroy(curKing);
-        SetKingBoss();
         OnStageResume?.Invoke();
         Time.timeScale = 1f;
-    }
-
-    IEnumerator WinPause()
-    {
-        OnWin?.Invoke();
-        yield return new WaitForSecondsRealtime(1.5f);
-        Destroy(curBoss);
-        yield return new WaitForSecondsRealtime(3f);
-    }
-
-    IEnumerator DefeatPause()
-    {
-        OnGameOver?.Invoke();
-        yield return new WaitForSecondsRealtime(1.5f);
-        Destroy(curKing);
-        yield return new WaitForSecondsRealtime(3f);
     }
 
     void SetKingBoss()
@@ -267,26 +219,5 @@ public class StageManager : MonoBehaviour
     {
         kingHealth -= damage;
         AllyKingHealth();
-    }
-
-    private void RemoveObjectFromList(GameObject obj)
-    {
-        if (StageObjects == null) return;
-
-        if (StageObjects.Contains(obj))
-        {
-            StageObjects.Remove(obj);
-        }
-    }
-
-    private void OnDisable()
-    {
-        UnitController.OnDestroyed -= RemoveObjectFromList;
-    }
-
-    public void Win()
-    {
-        bossHealth = 10;
-        DamageBoss(10);
     }
 }
