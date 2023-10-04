@@ -1380,7 +1380,7 @@ MonoBehaviour:
   _sandMask:
     serializedVersion: 2
     m_Bits: 512
-  _obtain: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
+  _obtain: {fileID: 8300000, guid: 0d6dbb091f4674b46ab22488248206ce, type: 3}
   board: {fileID: 349947249}
   start: 0
   end: 0

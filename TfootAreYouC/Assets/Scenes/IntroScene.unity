@@ -513,13 +513,12 @@ MonoBehaviour:
   positive: {fileID: 8300000, guid: 269b0bcbf3346dd47b395db3859b7ca3, type: 3}
   negative: {fileID: 8300000, guid: 9369a8314aa075f46882bb759adecd4a, type: 3}
   option: {fileID: 8300000, guid: f90976393e1dd08499ed8a13ab1c9abd, type: 3}
-  ranged: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
-  contact: {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
-  heal: {fileID: 8300000, guid: ba39bf8baf6d13046889b2d64822381a, type: 3}
+  ranged: {fileID: 8300000, guid: c6b41450be7bb604e89007934bd675cd, type: 3}
+  contact: {fileID: 8300000, guid: c98d75e441b1580418d756a7095f7ef6, type: 3}
+  heal: {fileID: 8300000, guid: 633ac2e996c5147429a14070ab93abe1, type: 3}
   mine: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
-  obtain: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
   hit: {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
-  die: {fileID: 8300000, guid: 2b21ef916f6943c439b71a7c74568878, type: 3}
+  die: {fileID: 8300000, guid: 90f5b4eb100f9794c8c0a3a1f30fae96, type: 3}
   muteButton: {fileID: 0}
   muteOffButton: {fileID: 0}
   volumeSlider: {fileID: 0}

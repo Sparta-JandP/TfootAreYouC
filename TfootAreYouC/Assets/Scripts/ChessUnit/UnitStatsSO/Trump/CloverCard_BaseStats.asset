@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CloverCard_BaseStats
   m_EditorClassIdentifier: 
   maxHealth: 4
-  speed: 0.005
+  speed: 0.008
   level: 1
   type: 0
   effectPower: 3
-  effectRate: 3
+  effectRate: 5
